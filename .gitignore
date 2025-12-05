@@ -26,9 +26,15 @@ airflow/.venv/
 airflow/*.pid
 airflow/*.db
 
-# dbt auto-generated folders
+# ===========================
+# DBT GENERATED FILES
+# ===========================
 logs/
 target/
+manifest.json
+run_results.json
 
-# macOS junk
+# ===========================
+# MACOS SYSTEM FILES
+# ===========================
 .DS_Store
