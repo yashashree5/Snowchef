@@ -25,3 +25,10 @@ airflow/.env
 airflow/.venv/
 airflow/*.pid
 airflow/*.db
+
+# dbt auto-generated folders
+logs/
+target/
+
+# macOS junk
+.DS_Store
