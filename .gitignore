@@ -1,0 +1,27 @@
+# ===========================
+# PYTHON & ENVIRONMENTS
+# ===========================
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+.env
+.env.*
+.venv/
+venv/
+ENV/
+env/
+
+# ===========================
+# AIRFLOW GENERATED FILES
+# ===========================
+airflow/airflow.db
+airflow/airflow.cfg
+airflow/logs/
+airflow/.airflow*
+airflow/.env
+airflow/.venv/
+airflow/*.pid
+airflow/*.db
