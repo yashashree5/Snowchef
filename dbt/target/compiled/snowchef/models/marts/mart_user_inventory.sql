@@ -1,0 +1,11 @@
+
+
+SELECT
+    p.USER_PK,
+    p.LOADED_AT,
+    p.QUANTITY,
+    p.UNIT,
+    i.INGREDIENT_NAME
+FROM USER_DB_PUMA.RAW.stg_pantry p
+INNER JOIN USER_DB_PUMA.RAW.stg_ingredient i
+    ON p.INGREDIENT_PK = i.INGREDIENT_PK

@@ -1,0 +1,37 @@
+version: 2
+
+models:
+  - name: stg_recipe
+    description: Staging layer for recipe master data.
+    columns:
+      - name: RECIPE_PK
+        description: Primary key for the recipe.
+        tests:
+          - unique
+          - not_null
+
+  - name: stg_ingredient
+    description: Staging layer for ingredient master data.
+    columns:
+      - name: INGREDIENT_PK
+        description: Primary key for the ingredient.
+        tests:
+          - unique
+          - not_null
+      - name: INGREDIENT_NAME
+        description: Cleaned name of the ingredient.
+        tests:
+          - not_null
+
+  - name: stg_recipe_ingredient
+    description: Staging layer for the recipe-ingredient link table.
+    columns:
+      - name: RECIPE_PK
+        tests:
+          - not_null
+      - name: INGREDIENT_PK
+        tests:
+          - not_null
+      - name: QUANTITY
+        tests:
+          - not_null

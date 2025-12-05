@@ -1,0 +1,38 @@
+[2025-12-01T20:51:58.178+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-12-01T20:51:58.187+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: snowchef_ELT_Dag.dbt_snapshot manual__2025-12-01T20:51:41.067877+00:00 [queued]>
+[2025-12-01T20:51:58.190+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: snowchef_ELT_Dag.dbt_snapshot manual__2025-12-01T20:51:41.067877+00:00 [queued]>
+[2025-12-01T20:51:58.191+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 1
+[2025-12-01T20:51:58.197+0000] {taskinstance.py:2888} INFO - Executing <Task(BashOperator): dbt_snapshot> on 2025-12-01 20:51:41.067877+00:00
+[2025-12-01T20:51:58.202+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'snowchef_ELT_Dag', 'dbt_snapshot', 'manual__2025-12-01T20:51:41.067877+00:00', '--job-id', '54', '--raw', '--subdir', 'DAGS_FOLDER/snowchef_ELT.py', '--cfg-path', '/tmp/tmphwntn096']
+[2025-12-01T20:51:58.205+0000] {standard_task_runner.py:105} INFO - Job 54: Subtask dbt_snapshot
+[2025-12-01T20:51:58.204+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=913) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2025-12-01T20:51:58.206+0000] {standard_task_runner.py:72} INFO - Started process 914 to run task
+[2025-12-01T20:51:58.224+0000] {task_command.py:467} INFO - Running <TaskInstance: snowchef_ELT_Dag.dbt_snapshot manual__2025-12-01T20:51:41.067877+00:00 [running]> on host 1e064e29deff
+[2025-12-01T20:51:58.265+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='snowchef_ELT_Dag' AIRFLOW_CTX_TASK_ID='dbt_snapshot' AIRFLOW_CTX_EXECUTION_DATE='2025-12-01T20:51:41.067877+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2025-12-01T20:51:41.067877+00:00'
+[2025-12-01T20:51:58.265+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-12-01T20:51:58.274+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2025-12-01T20:51:58.275+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '/home/***/.local/bin/dbt snapshot --profiles-dir /opt/***/dbt --project-dir /opt/***/dbt']
+[2025-12-01T20:51:58.280+0000] {subprocess.py:86} INFO - Output:
+[2025-12-01T20:52:00.057+0000] {subprocess.py:93} INFO - [0m20:52:00  Running with dbt=1.7.9
+[2025-12-01T20:52:00.672+0000] {subprocess.py:93} INFO - [0m20:52:00  Registered adapter: snowflake=1.7.2
+[2025-12-01T20:52:00.704+0000] {subprocess.py:93} INFO - [0m20:52:00  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2025-12-01T20:52:00.704+0000] {subprocess.py:93} INFO - There are 1 unused configuration paths:
+[2025-12-01T20:52:00.705+0000] {subprocess.py:93} INFO - - models.snowchef.raw
+[2025-12-01T20:52:00.718+0000] {subprocess.py:93} INFO - [0m20:52:00  Found 6 models, 1 snapshot, 8 tests, 4 sources, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+[2025-12-01T20:52:00.720+0000] {subprocess.py:93} INFO - [0m20:52:00
+[2025-12-01T20:52:03.092+0000] {subprocess.py:93} INFO - [0m20:52:03  Concurrency: 4 threads (target='dev')
+[2025-12-01T20:52:03.096+0000] {subprocess.py:93} INFO - [0m20:52:03
+[2025-12-01T20:52:03.111+0000] {subprocess.py:93} INFO - [0m20:52:03  1 of 1 START snapshot HISTORY.recipe_snapshot .................................. [RUN]
+[2025-12-01T20:52:04.827+0000] {subprocess.py:93} INFO - [0m20:52:04  1 of 1 OK snapshotted HISTORY.recipe_snapshot .................................. [[32mSUCCESS 1[0m in 1.71s]
+[2025-12-01T20:52:04.832+0000] {subprocess.py:93} INFO - [0m20:52:04
+[2025-12-01T20:52:04.832+0000] {subprocess.py:93} INFO - [0m20:52:04  Finished running 1 snapshot in 0 hours 0 minutes and 4.11 seconds (4.11s).
+[2025-12-01T20:52:04.845+0000] {subprocess.py:93} INFO - [0m20:52:04
+[2025-12-01T20:52:04.846+0000] {subprocess.py:93} INFO - [0m20:52:04  [32mCompleted successfully[0m
+[2025-12-01T20:52:04.846+0000] {subprocess.py:93} INFO - [0m20:52:04
+[2025-12-01T20:52:04.847+0000] {subprocess.py:93} INFO - [0m20:52:04  Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[2025-12-01T20:52:05.562+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2025-12-01T20:52:05.587+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-12-01T20:52:05.587+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=snowchef_ELT_Dag, task_id=dbt_snapshot, run_id=manual__2025-12-01T20:51:41.067877+00:00, execution_date=20251201T205141, start_date=20251201T205158, end_date=20251201T205205
+[2025-12-01T20:52:05.614+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-12-01T20:52:05.625+0000] {taskinstance.py:3900} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2025-12-01T20:52:05.625+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

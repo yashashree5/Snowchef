@@ -1,0 +1,30 @@
+[2025-11-09T22:37:16.078+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2025-11-09T22:37:16.088+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: snowchef_daily.upsert_raw scheduled__2025-11-08T03:00:00+00:00 [queued]>
+[2025-11-09T22:37:16.094+0000] {taskinstance.py:2612} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: snowchef_daily.upsert_raw scheduled__2025-11-08T03:00:00+00:00 [queued]>
+[2025-11-09T22:37:16.094+0000] {taskinstance.py:2865} INFO - Starting attempt 1 of 2
+[2025-11-09T22:37:16.099+0000] {taskinstance.py:2888} INFO - Executing <Task(_PythonDecoratedOperator): upsert_raw> on 2025-11-08 03:00:00+00:00
+[2025-11-09T22:37:16.102+0000] {standard_task_runner.py:72} INFO - Started process 917 to run task
+[2025-11-09T22:37:16.104+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'snowchef_daily', 'upsert_raw', 'scheduled__2025-11-08T03:00:00+00:00', '--job-id', '20', '--raw', '--subdir', 'DAGS_FOLDER/snowchef_daily.py', '--cfg-path', '/tmp/tmpmen4654u']
+[2025-11-09T22:37:16.107+0000] {standard_task_runner.py:105} INFO - Job 20: Subtask upsert_raw
+[2025-11-09T22:37:16.133+0000] {task_command.py:467} INFO - Running <TaskInstance: snowchef_daily.upsert_raw scheduled__2025-11-08T03:00:00+00:00 [running]> on host d6803ed3f823
+[2025-11-09T22:37:16.374+0000] {taskinstance.py:3131} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='snowchef_daily' AIRFLOW_CTX_TASK_ID='upsert_raw' AIRFLOW_CTX_EXECUTION_DATE='2025-11-08T03:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2025-11-08T03:00:00+00:00'
+[2025-11-09T22:37:16.375+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2025-11-09T22:37:16.381+0000] {base.py:84} INFO - Retrieving connection 'snowflake_conn'
+[2025-11-09T22:37:16.381+0000] {connection.py:413} INFO - Snowflake Connector for Python Version: 3.12.2, Python Version: 3.11.10, Platform: Linux-6.10.14-linuxkit-aarch64-with-glibc2.36
+[2025-11-09T22:37:16.382+0000] {connection.py:1196} INFO - Connecting to GLOBAL Snowflake domain
+[2025-11-09T22:37:16.382+0000] {connection.py:1277} INFO - This connection is in OCSP Fail Open Mode. TLS Certificates would be checked for validity and revocation status. Any other Certificate Revocation related exceptions or OCSP Responder failures would be disregarded in favor of connectivity.
+[2025-11-09T22:37:16.968+0000] {cursor.py:1156} INFO - Number of results in first chunk: 1
+[2025-11-09T22:37:17.077+0000] {cursor.py:1156} INFO - Number of results in first chunk: 1
+[2025-11-09T23:03:05.348+0000] {cursor.py:1156} INFO - Number of results in first chunk: 1
+[2025-11-09T23:03:05.935+0000] {cursor.py:1156} INFO - Number of results in first chunk: 1
+[2025-11-09T23:03:06.537+0000] {crypto.py:82} WARNING - empty cryptography key - values will not be stored encrypted.
+[2025-11-09T23:03:06.633+0000] {cursor.py:1156} INFO - Number of results in first chunk: 1
+[2025-11-09T23:03:06.634+0000] {snowchef_daily.py:277} INFO - Upserted recipes=100 ingredients=362 ri=1068; next_offset=100
+[2025-11-09T23:03:06.635+0000] {connection.py:788} INFO - closed
+[2025-11-09T23:03:06.699+0000] {connection.py:794} INFO - No async queries seem to be running, deleting session
+[2025-11-09T23:03:06.797+0000] {python.py:240} INFO - Done. Returned value was: recipes=100, ingredients=362, ri=1068
+[2025-11-09T23:03:06.826+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2025-11-09T23:03:06.826+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=snowchef_daily, task_id=upsert_raw, run_id=scheduled__2025-11-08T03:00:00+00:00, execution_date=20251108T030000, start_date=20251109T223716, end_date=20251109T230306
+[2025-11-09T23:03:06.857+0000] {local_task_job_runner.py:266} INFO - Task exited with return code 0
+[2025-11-09T23:03:06.886+0000] {taskinstance.py:3900} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2025-11-09T23:03:06.887+0000] {local_task_job_runner.py:245} INFO - ::endgroup::

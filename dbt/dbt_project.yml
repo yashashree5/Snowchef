@@ -1,0 +1,32 @@
+name: 'snowchef'
+version: '1.0.0'
+config-version: 2
+profile: 'snowchef'
+
+# 1. REMOVED the problematic top-level 'config:' block.
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+snapshot-paths: ["snapshots"]
+
+target-path: "target"
+
+models:
+  snowchef:
+    
+    # 3. Project-wide default materialization is set here.
+    #    This replaces the old top-level config block.
+    +materialized: view # Default for all models unless overridden below.
+    
+    # Configuration for the ANALYTICS Mart layer
+    marts:
+      +schema: ANALYTICS
+      # Override: Marts should be TABLES for optimized query performance.
+      +materialized: table 
+      
+    # Configuration for the RAW/Staging layer (renamed from 'staging')
+    raw:
+      +schema: RAW
+      # Staging models are VIEWS for minimal cost/storage.
+      +materialized: view
