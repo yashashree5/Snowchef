@@ -239,88 +239,120 @@ with DAG(
 
     @task
     def load_synthetic_pantry_data():
-        """
-        Generates scaled, randomized pantry data, capped at 100 total rows,
-        and bulk-loads it to Snowflake.
-        """
-        
-        # 1. Configuration for Scaling and Limiting
-        MAX_TOTAL_PANTRY_ROWS = 100           # Hard Limit
-        NUM_TEST_USERS = 10                   # Number of test users
-        MAX_ITEMS_PER_USER = 50               
-        
-        # Generate user IDs like 'test_user_01', 'test_user_02', etc.
+       
+        from collections import defaultdict
+
+        # --- Config ---
+        NUM_TEST_USERS = 10
+        RECIPES_PER_USER = 3          # how many recipes each user can fully cook
+        EXTRA_INGREDIENTS_PER_USER = 5  # random extra ingredients for realism
+
         TEST_USERS = [f"test_user_{i:02d}" for i in range(1, NUM_TEST_USERS + 1)]
-        COMMON_UNITS = ['cup', 'oz', 'gram', 'unit', 'pound', 'tsp', 'tbsp', 'clove', 'can']
-        
-        # Use the hook directly for the TRUNCATE and INSERT operations
+        COMMON_UNITS = ["cup", "oz", "gram", "unit", "pound", "tsp", "tbsp", "clove", "can"]
+
         hook = SnowflakeHook(snowflake_conn_id=SNOWFLAKE_CONN_ID)
-        
-        # Use a temporary connection/cursor just for the SELECT operation
         conn, cur = get_snowflake_cursor()
-        
-        # 2. Get all existing Ingredient IDs from the raw data
+
         try:
-            # Note: Using fully qualified names for robustness
-            cur.execute(f"SELECT INGREDIENT_ID FROM {DB}.{SCHEMA}.INGREDIENT")
-            all_ingredient_ids = [row[0] for row in cur.fetchall()]
+            # 1) Load recipe → ingredient mappings
+            cur.execute(f"""
+                SELECT RECIPE_ID, INGREDIENT_ID
+                FROM {DB}.{SCHEMA}.RECIPE_INGREDIENT
+            """)
+            rows = cur.fetchall()
+
+            if not rows:
+                print("No recipe_ingredient data found. Run recipe load first.")
+                return
+
+            recipe_to_ingredients = defaultdict(set)
+            all_ingredient_ids = set()
+
+            for recipe_id, ingredient_id in rows:
+                if recipe_id and ingredient_id:
+                    recipe_to_ingredients[recipe_id].add(ingredient_id)
+                    all_ingredient_ids.add(ingredient_id)
+
+            recipes_with_ingredients = [r for r, ings in recipe_to_ingredients.items() if ings]
+
+            if not recipes_with_ingredients:
+                print("No recipes with ingredients found. Skipping pantry generation.")
+                return
+
+            print(f"Found {len(recipes_with_ingredients)} recipes with ingredients.")
+            print(f"Found {len(all_ingredient_ids)} unique ingredients.")
+
         finally:
             cur.close()
             conn.close()
 
-        if not all_ingredient_ids:
-            print("No ingredients found to populate pantry. Skipping data generation.")
+        pantry_records = []
+
+        # 2) Build pantry per synthetic user
+        for user_id in TEST_USERS:
+            # Make sure we don't ask for more recipes than exist
+            recipes_for_user = random.sample(
+                recipes_with_ingredients,
+                k=min(RECIPES_PER_USER, len(recipes_with_ingredients))
+            )
+
+            user_ingredient_set = set()
+
+            # a) Add all ingredients for the chosen recipes (guarantees 100% matches)
+            for recipe_id in recipes_for_user:
+                for ing_id in recipe_to_ingredients[recipe_id]:
+                    if ing_id in user_ingredient_set:
+                        continue
+                    user_ingredient_set.add(ing_id)
+                    pantry_records.append({
+                        "USER_ID": user_id,
+                        "INGREDIENT_ID": ing_id,
+                        "QUANTITY": round(random.uniform(0.5, 10.0), 2),
+                        "UNIT": random.choice(COMMON_UNITS),
+                    })
+
+            # b) Add some extra random ingredients (noise, more partial matches)
+            remaining_ingredients = list(all_ingredient_ids - user_ingredient_set)
+            if remaining_ingredients:
+                extra_k = min(EXTRA_INGREDIENTS_PER_USER, len(remaining_ingredients))
+                extra_ings = random.sample(remaining_ingredients, k=extra_k)
+
+                for ing_id in extra_ings:
+                    user_ingredient_set.add(ing_id)
+                    pantry_records.append({
+                        "USER_ID": user_id,
+                        "INGREDIENT_ID": ing_id,
+                        "QUANTITY": round(random.uniform(0.5, 10.0), 2),
+                        "UNIT": random.choice(COMMON_UNITS),
+                    })
+
+            print(f"User {user_id} has {len(user_ingredient_set)} unique pantry items.")
+
+        # 3) Bulk load into PANTRY
+        if not pantry_records:
+            print("No pantry records generated.")
             return
 
-        pantry_records = []
-        
-        # 3. Generate random pantry records, checking the limit in the loop
-        for user_id in TEST_USERS:
-            if len(pantry_records) >= MAX_TOTAL_PANTRY_ROWS:
-                break
-                
-            # Ensure we don't try to sample more unique ingredients than available
-            available_sample_size = min(MAX_ITEMS_PER_USER, len(all_ingredient_ids))
-            num_ingredients = random.randint(5, available_sample_size)
-            
-            # Select unique ingredients for this user
-            user_ingredients = random.sample(all_ingredient_ids, k=num_ingredients)
-            
-            for ing_id in user_ingredients:
-                if len(pantry_records) >= MAX_TOTAL_PANTRY_ROWS:
-                    break # Stop appending if the limit is reached during the inner loop
-                    
-                pantry_records.append({
-                    "USER_ID": user_id,
-                    "INGREDIENT_ID": ing_id,
-                    "QUANTITY": round(random.uniform(0.1, 20.0), 2), 
-                    "UNIT": random.choice(COMMON_UNITS),
-                })
-
-        # 4. Bulk Load the Data to Snowflake
         pantry_df = pd.DataFrame(pantry_records)
-        # Add the LOADED_AT column to match the PANTRY table schema
-        pantry_df['LOADED_AT'] = datetime.utcnow() 
+        pantry_df["LOADED_AT"] = datetime.utcnow()
         pantry_df.columns = pantry_df.columns.str.upper()
 
-        print(f"Generated {len(pantry_records)} synthetic pantry entries (max 100) for {len(TEST_USERS)} users.")
-        
-    
-        truncate_sql = f"TRUNCATE TABLE IF EXISTS {DB}.{SCHEMA}.PANTRY;"
+        print(f"Generated {len(pantry_records)} synthetic pantry entries for {len(TEST_USERS)} users.")
+
+        truncate_sql = f"TRUNCATE TABLE {DB}.{SCHEMA}.PANTRY"
         print(f"Executing: {truncate_sql}")
         hook.run(truncate_sql)
-        
-        
+
         hook.insert_rows(
             table="PANTRY",
             rows=pantry_df.values.tolist(),
             target_fields=pantry_df.columns.tolist(),
             commit_every=pantry_df.shape[0],
             database=DB,
-            schema=SCHEMA
+            schema=SCHEMA,
         )
-        
-        print("Capped synthetic pantry data loaded successfully.")
+
+        print("Synthetic pantry data loaded successfully with strong recipe alignment.")
 
 
     # DAG Flow
