@@ -38,3 +38,4 @@ run_results.json
 # MACOS SYSTEM FILES
 # ===========================
 .DS_Store
+.streamlit/secrets.toml
