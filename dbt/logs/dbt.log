@@ -2135,3 +2135,2355 @@ FROM USER_DB_PUMA.RAW.stg_recipe
 [0m20:52:04.849383 [debug] [MainThread]: Command `dbt snapshot` succeeded at 20:52:04.849257 after 4.82 seconds
 [0m20:52:04.849708 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff89ef3770>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff66d8b380>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff66d88470>]}
 [0m20:52:04.850008 [debug] [MainThread]: Flushing usage events
+[0m00:27:41.282550 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffacbf6e40>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffaccefe30>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xfffface2a360>]}
+
+
+============================== 00:27:41.289295 | b8bf48a3-4fa1-4a18-99b8-8d2592010bc6 ==============================
+[0m00:27:41.289295 [info ] [MainThread]: Running with dbt=1.7.9
+[0m00:27:41.289661 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'version_check': 'True', 'fail_fast': 'False', 'log_path': '/opt/airflow/dbt/logs', 'debug': 'False', 'profiles_dir': '/opt/airflow/dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'target_path': 'None', 'invocation_command': 'dbt run --profiles-dir /opt/airflow/dbt --project-dir /opt/airflow/dbt', 'send_anonymous_usage_stats': 'True'}
+[0m00:27:42.132090 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'b8bf48a3-4fa1-4a18-99b8-8d2592010bc6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff90ff8d70>]}
+[0m00:27:42.177501 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'b8bf48a3-4fa1-4a18-99b8-8d2592010bc6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffacbf70e0>]}
+[0m00:27:42.178855 [info ] [MainThread]: Registered adapter: snowflake=1.7.2
+[0m00:27:42.184526 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m00:27:42.228768 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m00:27:42.229281 [debug] [MainThread]: Partial parsing: updated file: snowchef://models/marts/mart_recipe_availability.sql
+[0m00:27:42.295446 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.snowchef.raw
+[0m00:27:42.298672 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'b8bf48a3-4fa1-4a18-99b8-8d2592010bc6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff9094dd00>]}
+[0m00:27:42.307797 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'b8bf48a3-4fa1-4a18-99b8-8d2592010bc6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff90c7eff0>]}
+[0m00:27:42.308210 [info ] [MainThread]: Found 6 models, 1 snapshot, 8 tests, 4 sources, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+[0m00:27:42.308816 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'b8bf48a3-4fa1-4a18-99b8-8d2592010bc6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff90a865a0>]}
+[0m00:27:42.310744 [info ] [MainThread]: 
+[0m00:27:42.311339 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m00:27:42.312204 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA'
+[0m00:27:42.318301 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA'
+[0m00:27:42.319879 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA"
+[0m00:27:42.321058 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA"
+[0m00:27:42.321270 [debug] [ThreadPool]: On list_USER_DB_PUMA: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA"} */
+show terse schemas in database USER_DB_PUMA
+    limit 10000
+[0m00:27:42.321441 [debug] [ThreadPool]: On list_USER_DB_PUMA: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA"} */
+show terse schemas in database USER_DB_PUMA
+    limit 10000
+[0m00:27:42.321602 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:27:42.321824 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:27:42.966743 [debug] [ThreadPool]: SQL status: SUCCESS 10 in 1.0 seconds
+[0m00:27:42.969647 [debug] [ThreadPool]: On list_USER_DB_PUMA: Close
+[0m00:27:42.996133 [debug] [ThreadPool]: SQL status: SUCCESS 10 in 1.0 seconds
+[0m00:27:42.997701 [debug] [ThreadPool]: On list_USER_DB_PUMA: Close
+[0m00:27:43.155244 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA, now list_USER_DB_PUMA_RAW_ANALYTICS)
+[0m00:27:43.156706 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA, now list_USER_DB_PUMA_RAW)
+[0m00:27:43.169050 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_RAW_ANALYTICS"
+[0m00:27:43.171623 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_RAW"
+[0m00:27:43.172682 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA_HISTORY'
+[0m00:27:43.173078 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW_ANALYTICS: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_RAW_ANALYTICS"} */
+show terse objects in USER_DB_PUMA.RAW_ANALYTICS limit 10000
+[0m00:27:43.173490 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_RAW"} */
+show terse objects in USER_DB_PUMA.RAW limit 10000
+[0m00:27:43.177046 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_HISTORY"
+[0m00:27:43.177407 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:27:43.177742 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:27:43.178076 [debug] [ThreadPool]: On list_USER_DB_PUMA_HISTORY: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_HISTORY"} */
+show terse objects in USER_DB_PUMA.HISTORY limit 10000
+[0m00:27:43.181608 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:27:43.661964 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.0 seconds
+[0m00:27:43.687315 [debug] [ThreadPool]: On list_USER_DB_PUMA_HISTORY: Close
+[0m00:27:43.707706 [debug] [ThreadPool]: SQL status: SUCCESS 20 in 1.0 seconds
+[0m00:27:43.713794 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW: Close
+[0m00:27:43.989369 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 1.0 seconds
+[0m00:27:43.990986 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW_ANALYTICS: Close
+[0m00:27:44.135046 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'b8bf48a3-4fa1-4a18-99b8-8d2592010bc6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff90947b00>]}
+[0m00:27:44.137561 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m00:27:44.139160 [info ] [MainThread]: 
+[0m00:27:44.157932 [debug] [Thread-1 (]: Began running node model.snowchef.stg_ingredient
+[0m00:27:44.158308 [debug] [Thread-2 (]: Began running node model.snowchef.stg_pantry
+[0m00:27:44.158543 [debug] [Thread-3 (]: Began running node model.snowchef.stg_recipe
+[0m00:27:44.158980 [info ] [Thread-1 (]: 1 of 6 START sql view model RAW.stg_ingredient ................................. [RUN]
+[0m00:27:44.159336 [debug] [Thread-4 (]: Began running node model.snowchef.stg_recipe_ingredient
+[0m00:27:44.159583 [info ] [Thread-2 (]: 2 of 6 START sql view model RAW.stg_pantry ..................................... [RUN]
+[0m00:27:44.160037 [info ] [Thread-3 (]: 3 of 6 START sql view model RAW.stg_recipe ..................................... [RUN]
+[0m00:27:44.160643 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA_RAW, now model.snowchef.stg_ingredient)
+[0m00:27:44.160922 [info ] [Thread-4 (]: 4 of 6 START sql view model RAW.stg_recipe_ingredient .......................... [RUN]
+[0m00:27:44.161470 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA_RAW_ANALYTICS, now model.snowchef.stg_pantry)
+[0m00:27:44.162265 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA_HISTORY, now model.snowchef.stg_recipe)
+[0m00:27:44.162484 [debug] [Thread-1 (]: Began compiling node model.snowchef.stg_ingredient
+[0m00:27:44.163099 [debug] [Thread-4 (]: Acquiring new snowflake connection 'model.snowchef.stg_recipe_ingredient'
+[0m00:27:44.163352 [debug] [Thread-2 (]: Began compiling node model.snowchef.stg_pantry
+[0m00:27:44.163571 [debug] [Thread-3 (]: Began compiling node model.snowchef.stg_recipe
+[0m00:27:44.170946 [debug] [Thread-1 (]: Writing injected SQL for node "model.snowchef.stg_ingredient"
+[0m00:27:44.171184 [debug] [Thread-4 (]: Began compiling node model.snowchef.stg_recipe_ingredient
+[0m00:27:44.172696 [debug] [Thread-2 (]: Writing injected SQL for node "model.snowchef.stg_pantry"
+[0m00:27:44.174163 [debug] [Thread-3 (]: Writing injected SQL for node "model.snowchef.stg_recipe"
+[0m00:27:44.175967 [debug] [Thread-4 (]: Writing injected SQL for node "model.snowchef.stg_recipe_ingredient"
+[0m00:27:44.177235 [debug] [Thread-1 (]: Timing info for model.snowchef.stg_ingredient (compile): 00:27:44.163817 => 00:27:44.177073
+[0m00:27:44.177533 [debug] [Thread-2 (]: Timing info for model.snowchef.stg_pantry (compile): 00:27:44.171398 => 00:27:44.177372
+[0m00:27:44.177724 [debug] [Thread-1 (]: Began executing node model.snowchef.stg_ingredient
+[0m00:27:44.178006 [debug] [Thread-2 (]: Began executing node model.snowchef.stg_pantry
+[0m00:27:44.178263 [debug] [Thread-4 (]: Timing info for model.snowchef.stg_recipe_ingredient (compile): 00:27:44.174568 => 00:27:44.178143
+[0m00:27:44.194959 [debug] [Thread-1 (]: Writing runtime sql for node "model.snowchef.stg_ingredient"
+[0m00:27:44.196904 [debug] [Thread-2 (]: Writing runtime sql for node "model.snowchef.stg_pantry"
+[0m00:27:44.197287 [debug] [Thread-3 (]: Timing info for model.snowchef.stg_recipe (compile): 00:27:44.172913 => 00:27:44.197150
+[0m00:27:44.197575 [debug] [Thread-4 (]: Began executing node model.snowchef.stg_recipe_ingredient
+[0m00:27:44.198161 [debug] [Thread-3 (]: Began executing node model.snowchef.stg_recipe
+[0m00:27:44.199918 [debug] [Thread-4 (]: Writing runtime sql for node "model.snowchef.stg_recipe_ingredient"
+[0m00:27:44.203338 [debug] [Thread-3 (]: Writing runtime sql for node "model.snowchef.stg_recipe"
+[0m00:27:44.204248 [debug] [Thread-2 (]: Using snowflake connection "model.snowchef.stg_pantry"
+[0m00:27:44.204598 [debug] [Thread-1 (]: Using snowflake connection "model.snowchef.stg_ingredient"
+[0m00:27:44.204827 [debug] [Thread-2 (]: On model.snowchef.stg_pantry: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "model.snowchef.stg_pantry"} */
+create or replace   view USER_DB_PUMA.RAW.stg_pantry
+  
+   as (
+    
+
+SELECT
+    USER_ID AS USER_PK,
+    INGREDIENT_ID AS INGREDIENT_PK,
+    QUANTITY,
+    UNIT,
+    LOADED_AT
+FROM USER_DB_PUMA.RAW.pantry
+  );
+[0m00:27:44.205065 [debug] [Thread-1 (]: On model.snowchef.stg_ingredient: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "model.snowchef.stg_ingredient"} */
+create or replace   view USER_DB_PUMA.RAW.stg_ingredient
+  
+   as (
+    
+
+SELECT DISTINCT
+    INGREDIENT_ID AS INGREDIENT_PK,
+    NAME AS INGREDIENT_NAME
+FROM USER_DB_PUMA.RAW.ingredient
+  );
+[0m00:27:44.205393 [debug] [Thread-4 (]: Using snowflake connection "model.snowchef.stg_recipe_ingredient"
+[0m00:27:44.205709 [debug] [Thread-3 (]: Using snowflake connection "model.snowchef.stg_recipe"
+[0m00:27:44.205880 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m00:27:44.206052 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:27:44.206239 [debug] [Thread-4 (]: On model.snowchef.stg_recipe_ingredient: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "model.snowchef.stg_recipe_ingredient"} */
+create or replace   view USER_DB_PUMA.RAW.stg_recipe_ingredient
+  
+   as (
+    
+
+SELECT
+    RECIPE_ID AS RECIPE_PK,
+    INGREDIENT_ID AS INGREDIENT_PK,
+    QUANTITY,
+    UNIT,
+    RAW_TEXT
+FROM USER_DB_PUMA.RAW.recipe_ingredient
+  );
+[0m00:27:44.206422 [debug] [Thread-3 (]: On model.snowchef.stg_recipe: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "model.snowchef.stg_recipe"} */
+create or replace   view USER_DB_PUMA.RAW.stg_recipe
+  
+   as (
+    
+
+SELECT DISTINCT
+    RECIPE_ID AS RECIPE_PK,
+    TITLE,
+    INSTRUCTIONS,
+    SERVINGS,
+    SOURCE_URL,
+    CUISINE,
+    DIET_FLAGS,
+    LOADED_AT
+FROM USER_DB_PUMA.RAW.recipe
+  );
+[0m00:27:44.209074 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m00:27:44.209487 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m00:27:44.700414 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 0.0 seconds
+[0m00:27:44.734022 [debug] [Thread-1 (]: Timing info for model.snowchef.stg_ingredient (execute): 00:27:44.178357 => 00:27:44.733802
+[0m00:27:44.734607 [debug] [Thread-1 (]: On model.snowchef.stg_ingredient: Close
+[0m00:27:44.761463 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m00:27:44.764548 [debug] [Thread-4 (]: Timing info for model.snowchef.stg_recipe_ingredient (execute): 00:27:44.198307 => 00:27:44.764360
+[0m00:27:44.764979 [debug] [Thread-4 (]: On model.snowchef.stg_recipe_ingredient: Close
+[0m00:27:44.770083 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m00:27:44.772851 [debug] [Thread-3 (]: Timing info for model.snowchef.stg_recipe (execute): 00:27:44.200126 => 00:27:44.772679
+[0m00:27:44.773670 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m00:27:44.774014 [debug] [Thread-3 (]: On model.snowchef.stg_recipe: Close
+[0m00:27:44.776520 [debug] [Thread-2 (]: Timing info for model.snowchef.stg_pantry (execute): 00:27:44.195180 => 00:27:44.776374
+[0m00:27:44.777625 [debug] [Thread-2 (]: On model.snowchef.stg_pantry: Close
+[0m00:27:44.881512 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'b8bf48a3-4fa1-4a18-99b8-8d2592010bc6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff826762d0>]}
+[0m00:27:44.882511 [info ] [Thread-1 (]: 1 of 6 OK created sql view model RAW.stg_ingredient ............................ [[32mSUCCESS 1[0m in 0.72s]
+[0m00:27:44.883880 [debug] [Thread-1 (]: Finished running node model.snowchef.stg_ingredient
+[0m00:27:44.898573 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'b8bf48a3-4fa1-4a18-99b8-8d2592010bc6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff82621a60>]}
+[0m00:27:44.899058 [info ] [Thread-3 (]: 3 of 6 OK created sql view model RAW.stg_recipe ................................ [[32mSUCCESS 1[0m in 0.74s]
+[0m00:27:44.899826 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'b8bf48a3-4fa1-4a18-99b8-8d2592010bc6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff82622750>]}
+[0m00:27:44.900179 [debug] [Thread-3 (]: Finished running node model.snowchef.stg_recipe
+[0m00:27:44.900532 [info ] [Thread-4 (]: 4 of 6 OK created sql view model RAW.stg_recipe_ingredient ..................... [[32mSUCCESS 1[0m in 0.74s]
+[0m00:27:44.901201 [debug] [Thread-4 (]: Finished running node model.snowchef.stg_recipe_ingredient
+[0m00:27:44.916196 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'b8bf48a3-4fa1-4a18-99b8-8d2592010bc6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff826226f0>]}
+[0m00:27:44.916647 [info ] [Thread-2 (]: 2 of 6 OK created sql view model RAW.stg_pantry ................................ [[32mSUCCESS 1[0m in 0.75s]
+[0m00:27:44.917294 [debug] [Thread-2 (]: Finished running node model.snowchef.stg_pantry
+[0m00:27:44.918162 [debug] [Thread-1 (]: Began running node model.snowchef.mart_recipe_availability
+[0m00:27:44.918431 [debug] [Thread-3 (]: Began running node model.snowchef.mart_user_inventory
+[0m00:27:44.918730 [info ] [Thread-1 (]: 5 of 6 START sql table model RAW_ANALYTICS.mart_recipe_availability ............ [RUN]
+[0m00:27:44.919163 [info ] [Thread-3 (]: 6 of 6 START sql table model RAW_ANALYTICS.mart_user_inventory ................. [RUN]
+[0m00:27:44.919866 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.snowchef.stg_ingredient, now model.snowchef.mart_recipe_availability)
+[0m00:27:44.920377 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.snowchef.stg_recipe, now model.snowchef.mart_user_inventory)
+[0m00:27:44.920652 [debug] [Thread-1 (]: Began compiling node model.snowchef.mart_recipe_availability
+[0m00:27:44.920919 [debug] [Thread-3 (]: Began compiling node model.snowchef.mart_user_inventory
+[0m00:27:44.924246 [debug] [Thread-1 (]: Writing injected SQL for node "model.snowchef.mart_recipe_availability"
+[0m00:27:44.926285 [debug] [Thread-3 (]: Writing injected SQL for node "model.snowchef.mart_user_inventory"
+[0m00:27:44.929189 [debug] [Thread-1 (]: Timing info for model.snowchef.mart_recipe_availability (compile): 00:27:44.921098 => 00:27:44.929003
+[0m00:27:44.929444 [debug] [Thread-1 (]: Began executing node model.snowchef.mart_recipe_availability
+[0m00:27:44.929715 [debug] [Thread-3 (]: Timing info for model.snowchef.mart_user_inventory (compile): 00:27:44.924485 => 00:27:44.929569
+[0m00:27:44.942497 [debug] [Thread-1 (]: Writing runtime sql for node "model.snowchef.mart_recipe_availability"
+[0m00:27:44.942765 [debug] [Thread-3 (]: Began executing node model.snowchef.mart_user_inventory
+[0m00:27:44.944456 [debug] [Thread-3 (]: Writing runtime sql for node "model.snowchef.mart_user_inventory"
+[0m00:27:44.957009 [debug] [Thread-1 (]: Using snowflake connection "model.snowchef.mart_recipe_availability"
+[0m00:27:44.959810 [debug] [Thread-3 (]: Using snowflake connection "model.snowchef.mart_user_inventory"
+[0m00:27:44.960094 [debug] [Thread-1 (]: On model.snowchef.mart_recipe_availability: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "model.snowchef.mart_recipe_availability"} */
+create or replace transient table USER_DB_PUMA.RAW_ANALYTICS.mart_recipe_availability
+         as
+        (
+
+WITH recipe_needs AS (
+    -- 1. How many ingredients each recipe requires
+    SELECT
+        recipe_pk,
+        COUNT(DISTINCT ingredient_pk) AS total_required_count
+    FROM USER_DB_PUMA.RAW.stg_recipe_ingredient
+    GROUP BY recipe_pk
+),
+
+users AS (
+    -- 2. All distinct users from pantry
+    SELECT DISTINCT
+        user_pk
+    FROM USER_DB_PUMA.RAW.stg_pantry
+),
+
+user_matches AS (
+    -- 3. For each (user, recipe), how many ingredients the user has
+    SELECT
+        p.user_pk,
+        ri.recipe_pk,
+        COUNT(DISTINCT ri.ingredient_pk) AS matched_count
+    FROM USER_DB_PUMA.RAW.stg_pantry p
+    JOIN USER_DB_PUMA.RAW.stg_recipe_ingredient ri
+      ON p.ingredient_pk = ri.ingredient_pk
+    GROUP BY
+        p.user_pk,
+        ri.recipe_pk
+),
+
+user_recipe_grid AS (
+    -- 4. All combinations user × recipe so we also see 0-match recipes
+    SELECT
+        u.user_pk,
+        rn.recipe_pk,
+        rn.total_required_count
+    FROM users u
+    CROSS JOIN recipe_needs rn
+)
+
+-- 5. Final mart for recommendations
+SELECT
+    g.user_pk,
+    g.recipe_pk,
+    r.title,
+    r.instructions,   
+    r.cuisine,
+    r.servings,
+    r.source_url,
+
+    g.total_required_count                          AS total_required_count,
+    COALESCE(um.matched_count, 0)                   AS matched_count,
+    g.total_required_count - COALESCE(um.matched_count, 0) AS missing_count,
+
+    COALESCE(um.matched_count, 0) * 100.0
+        / g.total_required_count                    AS match_percentage,
+
+    CASE
+        WHEN g.total_required_count - COALESCE(um.matched_count, 0) = 0
+        THEN TRUE
+        ELSE FALSE
+    END AS can_cook_now,
+
+    CASE
+        WHEN g.total_required_count - COALESCE(um.matched_count, 0) BETWEEN 1 AND 2
+        THEN TRUE
+        ELSE FALSE
+    END AS almost_can_cook
+
+FROM user_recipe_grid g
+JOIN USER_DB_PUMA.RAW.stg_recipe r
+  ON g.recipe_pk = r.recipe_pk
+LEFT JOIN user_matches um
+  ON um.user_pk = g.user_pk
+ AND um.recipe_pk = g.recipe_pk;
+[0m00:27:44.963667 [debug] [Thread-3 (]: On model.snowchef.mart_user_inventory: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "model.snowchef.mart_user_inventory"} */
+create or replace transient table USER_DB_PUMA.RAW_ANALYTICS.mart_user_inventory
+         as
+        (
+
+SELECT
+    p.USER_PK,
+    p.LOADED_AT,
+    p.QUANTITY,
+    p.UNIT,
+    i.INGREDIENT_NAME
+FROM USER_DB_PUMA.RAW.stg_pantry p
+INNER JOIN USER_DB_PUMA.RAW.stg_ingredient i
+    ON p.INGREDIENT_PK = i.INGREDIENT_PK
+        );
+[0m00:27:44.963964 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:27:44.964195 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m00:27:45.419940 [debug] [Thread-1 (]: Snowflake adapter: Snowflake query id: 01c0e13b-0307-335b-000f-c0df00b5f056
+[0m00:27:45.420833 [debug] [Thread-1 (]: Snowflake adapter: Snowflake error: 001003 (42000): SQL compilation error:
+syntax error line 79 at position 31 unexpected ';'.
+[0m00:27:45.421729 [debug] [Thread-1 (]: Timing info for model.snowchef.mart_recipe_availability (execute): 00:27:44.929854 => 00:27:45.421367
+[0m00:27:45.422400 [debug] [Thread-1 (]: On model.snowchef.mart_recipe_availability: Close
+[0m00:27:45.562817 [debug] [Thread-1 (]: Database Error in model mart_recipe_availability (models/marts/mart_recipe_availability.sql)
+  001003 (42000): SQL compilation error:
+  syntax error line 79 at position 31 unexpected ';'.
+  compiled Code at target/run/snowchef/models/marts/mart_recipe_availability.sql
+[0m00:27:45.564020 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'b8bf48a3-4fa1-4a18-99b8-8d2592010bc6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8268c680>]}
+[0m00:27:45.565144 [error] [Thread-1 (]: 5 of 6 ERROR creating sql table model RAW_ANALYTICS.mart_recipe_availability ... [[31mERROR[0m in 0.64s]
+[0m00:27:45.566855 [debug] [Thread-1 (]: Finished running node model.snowchef.mart_recipe_availability
+[0m00:27:47.164767 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 2.0 seconds
+[0m00:27:47.177943 [debug] [Thread-3 (]: Timing info for model.snowchef.mart_user_inventory (execute): 00:27:44.943090 => 00:27:47.176076
+[0m00:27:47.182147 [debug] [Thread-3 (]: On model.snowchef.mart_user_inventory: Close
+[0m00:27:47.355327 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'b8bf48a3-4fa1-4a18-99b8-8d2592010bc6', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff82675070>]}
+[0m00:27:47.358213 [info ] [Thread-3 (]: 6 of 6 OK created sql table model RAW_ANALYTICS.mart_user_inventory ............ [[32mSUCCESS 1[0m in 2.43s]
+[0m00:27:47.363114 [debug] [Thread-3 (]: Finished running node model.snowchef.mart_user_inventory
+[0m00:27:47.368555 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m00:27:47.368891 [debug] [MainThread]: Connection 'model.snowchef.stg_pantry' was properly closed.
+[0m00:27:47.369099 [debug] [MainThread]: Connection 'model.snowchef.mart_recipe_availability' was properly closed.
+[0m00:27:47.369245 [debug] [MainThread]: Connection 'model.snowchef.mart_user_inventory' was properly closed.
+[0m00:27:47.369381 [debug] [MainThread]: Connection 'model.snowchef.stg_recipe_ingredient' was properly closed.
+[0m00:27:47.369797 [info ] [MainThread]: 
+[0m00:27:47.370412 [info ] [MainThread]: Finished running 4 view models, 2 table models in 0 hours 0 minutes and 5.06 seconds (5.06s).
+[0m00:27:47.371668 [debug] [MainThread]: Command end result
+[0m00:27:47.384339 [info ] [MainThread]: 
+[0m00:27:47.385066 [info ] [MainThread]: [31mCompleted with 1 error and 0 warnings:[0m
+[0m00:27:47.385472 [info ] [MainThread]: 
+[0m00:27:47.385842 [error] [MainThread]:   Database Error in model mart_recipe_availability (models/marts/mart_recipe_availability.sql)
+  001003 (42000): SQL compilation error:
+  syntax error line 79 at position 31 unexpected ';'.
+  compiled Code at target/run/snowchef/models/marts/mart_recipe_availability.sql
+[0m00:27:47.386242 [info ] [MainThread]: 
+[0m00:27:47.386648 [info ] [MainThread]: Done. PASS=5 WARN=0 ERROR=1 SKIP=0 TOTAL=6
+[0m00:27:47.391702 [debug] [MainThread]: Resource report: {"command_name": "run", "command_wall_clock_time": 6.1418443, "process_user_time": 3.325711, "process_kernel_time": 0.997311, "process_mem_max_rss": "220460", "process_in_blocks": "35472", "process_out_blocks": "2785", "command_success": false}
+[0m00:27:47.397419 [debug] [MainThread]: Command `dbt run` failed at 00:27:47.397277 after 6.15 seconds
+[0m00:27:47.398103 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffb1df6a50>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffacd02390>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff90c7f530>]}
+[0m00:27:47.398328 [debug] [MainThread]: Flushing usage events
+[0m00:37:42.261084 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff97d75940>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff990a41a0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff97d76c90>]}
+
+
+============================== 00:37:42.265000 | e589703e-6da0-4bf5-aab7-6cad4ae2102a ==============================
+[0m00:37:42.265000 [info ] [MainThread]: Running with dbt=1.7.9
+[0m00:37:42.266203 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/opt/airflow/dbt', 'debug': 'False', 'warn_error': 'None', 'log_path': '/opt/airflow/dbt/logs', 'fail_fast': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run --profiles-dir /opt/airflow/dbt --project-dir /opt/airflow/dbt', 'log_format': 'default', 'introspect': 'True', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m00:37:42.793100 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'e589703e-6da0-4bf5-aab7-6cad4ae2102a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff973b1790>]}
+[0m00:37:42.832059 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'e589703e-6da0-4bf5-aab7-6cad4ae2102a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff97bbc590>]}
+[0m00:37:42.832450 [info ] [MainThread]: Registered adapter: snowflake=1.7.2
+[0m00:37:42.836746 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m00:37:42.855518 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m00:37:42.855841 [debug] [MainThread]: Partial parsing: updated file: snowchef://models/marts/mart_recipe_availability.sql
+[0m00:37:42.925039 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.snowchef.raw
+[0m00:37:42.928007 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'e589703e-6da0-4bf5-aab7-6cad4ae2102a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff77919bb0>]}
+[0m00:37:42.936155 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'e589703e-6da0-4bf5-aab7-6cad4ae2102a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff77c4aed0>]}
+[0m00:37:42.936410 [info ] [MainThread]: Found 6 models, 1 snapshot, 8 tests, 4 sources, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+[0m00:37:42.936749 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e589703e-6da0-4bf5-aab7-6cad4ae2102a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7c0999a0>]}
+[0m00:37:42.937985 [info ] [MainThread]: 
+[0m00:37:42.938658 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m00:37:42.939617 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA'
+[0m00:37:42.940373 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA'
+[0m00:37:42.947038 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA"
+[0m00:37:42.948127 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA"
+[0m00:37:42.948363 [debug] [ThreadPool]: On list_USER_DB_PUMA: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA"} */
+show terse schemas in database USER_DB_PUMA
+    limit 10000
+[0m00:37:42.948581 [debug] [ThreadPool]: On list_USER_DB_PUMA: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA"} */
+show terse schemas in database USER_DB_PUMA
+    limit 10000
+[0m00:37:42.948797 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:37:42.949001 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:37:43.621726 [debug] [ThreadPool]: SQL status: SUCCESS 10 in 1.0 seconds
+[0m00:37:43.624626 [debug] [ThreadPool]: On list_USER_DB_PUMA: Close
+[0m00:37:43.640888 [debug] [ThreadPool]: SQL status: SUCCESS 10 in 1.0 seconds
+[0m00:37:43.643044 [debug] [ThreadPool]: On list_USER_DB_PUMA: Close
+[0m00:37:43.792703 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA, now list_USER_DB_PUMA_RAW)
+[0m00:37:43.799535 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA, now list_USER_DB_PUMA_RAW_ANALYTICS)
+[0m00:37:43.804517 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_RAW"
+[0m00:37:43.806831 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_RAW_ANALYTICS"
+[0m00:37:43.807526 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA_HISTORY'
+[0m00:37:43.807934 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_RAW"} */
+show terse objects in USER_DB_PUMA.RAW limit 10000
+[0m00:37:43.808322 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW_ANALYTICS: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_RAW_ANALYTICS"} */
+show terse objects in USER_DB_PUMA.RAW_ANALYTICS limit 10000
+[0m00:37:43.811523 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_HISTORY"
+[0m00:37:43.811935 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:37:43.812243 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:37:43.812567 [debug] [ThreadPool]: On list_USER_DB_PUMA_HISTORY: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_HISTORY"} */
+show terse objects in USER_DB_PUMA.HISTORY limit 10000
+[0m00:37:43.815483 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:37:44.321588 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 1.0 seconds
+[0m00:37:44.323745 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW_ANALYTICS: Close
+[0m00:37:44.328877 [debug] [ThreadPool]: SQL status: SUCCESS 20 in 1.0 seconds
+[0m00:37:44.330512 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW: Close
+[0m00:37:44.362201 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m00:37:44.363638 [debug] [ThreadPool]: On list_USER_DB_PUMA_HISTORY: Close
+[0m00:37:44.484479 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e589703e-6da0-4bf5-aab7-6cad4ae2102a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7c1bb710>]}
+[0m00:37:44.485728 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m00:37:44.487485 [info ] [MainThread]: 
+[0m00:37:44.499931 [debug] [Thread-1 (]: Began running node model.snowchef.stg_ingredient
+[0m00:37:44.500260 [debug] [Thread-2 (]: Began running node model.snowchef.stg_pantry
+[0m00:37:44.500579 [debug] [Thread-3 (]: Began running node model.snowchef.stg_recipe
+[0m00:37:44.500998 [info ] [Thread-1 (]: 1 of 6 START sql view model RAW.stg_ingredient ................................. [RUN]
+[0m00:37:44.501360 [debug] [Thread-4 (]: Began running node model.snowchef.stg_recipe_ingredient
+[0m00:37:44.501736 [info ] [Thread-2 (]: 2 of 6 START sql view model RAW.stg_pantry ..................................... [RUN]
+[0m00:37:44.502369 [info ] [Thread-3 (]: 3 of 6 START sql view model RAW.stg_recipe ..................................... [RUN]
+[0m00:37:44.503149 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA_HISTORY, now model.snowchef.stg_ingredient)
+[0m00:37:44.504100 [info ] [Thread-4 (]: 4 of 6 START sql view model RAW.stg_recipe_ingredient .......................... [RUN]
+[0m00:37:44.504896 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA_RAW_ANALYTICS, now model.snowchef.stg_pantry)
+[0m00:37:44.505494 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA_RAW, now model.snowchef.stg_recipe)
+[0m00:37:44.505856 [debug] [Thread-1 (]: Began compiling node model.snowchef.stg_ingredient
+[0m00:37:44.506489 [debug] [Thread-4 (]: Acquiring new snowflake connection 'model.snowchef.stg_recipe_ingredient'
+[0m00:37:44.506803 [debug] [Thread-2 (]: Began compiling node model.snowchef.stg_pantry
+[0m00:37:44.507096 [debug] [Thread-3 (]: Began compiling node model.snowchef.stg_recipe
+[0m00:37:44.512979 [debug] [Thread-1 (]: Writing injected SQL for node "model.snowchef.stg_ingredient"
+[0m00:37:44.513329 [debug] [Thread-4 (]: Began compiling node model.snowchef.stg_recipe_ingredient
+[0m00:37:44.515344 [debug] [Thread-2 (]: Writing injected SQL for node "model.snowchef.stg_pantry"
+[0m00:37:44.517234 [debug] [Thread-3 (]: Writing injected SQL for node "model.snowchef.stg_recipe"
+[0m00:37:44.519413 [debug] [Thread-4 (]: Writing injected SQL for node "model.snowchef.stg_recipe_ingredient"
+[0m00:37:44.520187 [debug] [Thread-1 (]: Timing info for model.snowchef.stg_ingredient (compile): 00:37:44.507316 => 00:37:44.520028
+[0m00:37:44.520612 [debug] [Thread-1 (]: Began executing node model.snowchef.stg_ingredient
+[0m00:37:44.533218 [debug] [Thread-2 (]: Timing info for model.snowchef.stg_pantry (compile): 00:37:44.513550 => 00:37:44.533093
+[0m00:37:44.533500 [debug] [Thread-3 (]: Timing info for model.snowchef.stg_recipe (compile): 00:37:44.515578 => 00:37:44.533381
+[0m00:37:44.533740 [debug] [Thread-4 (]: Timing info for model.snowchef.stg_recipe_ingredient (compile): 00:37:44.517667 => 00:37:44.533609
+[0m00:37:44.538574 [debug] [Thread-1 (]: Writing runtime sql for node "model.snowchef.stg_ingredient"
+[0m00:37:44.538785 [debug] [Thread-2 (]: Began executing node model.snowchef.stg_pantry
+[0m00:37:44.539046 [debug] [Thread-3 (]: Began executing node model.snowchef.stg_recipe
+[0m00:37:44.539309 [debug] [Thread-4 (]: Began executing node model.snowchef.stg_recipe_ingredient
+[0m00:37:44.541118 [debug] [Thread-2 (]: Writing runtime sql for node "model.snowchef.stg_pantry"
+[0m00:37:44.542902 [debug] [Thread-3 (]: Writing runtime sql for node "model.snowchef.stg_recipe"
+[0m00:37:44.543240 [debug] [Thread-1 (]: Using snowflake connection "model.snowchef.stg_ingredient"
+[0m00:37:44.544764 [debug] [Thread-4 (]: Writing runtime sql for node "model.snowchef.stg_recipe_ingredient"
+[0m00:37:44.545381 [debug] [Thread-1 (]: On model.snowchef.stg_ingredient: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "model.snowchef.stg_ingredient"} */
+create or replace   view USER_DB_PUMA.RAW.stg_ingredient
+  
+   as (
+    
+
+SELECT DISTINCT
+    INGREDIENT_ID AS INGREDIENT_PK,
+    NAME AS INGREDIENT_NAME
+FROM USER_DB_PUMA.RAW.ingredient
+  );
+[0m00:37:44.545868 [debug] [Thread-2 (]: Using snowflake connection "model.snowchef.stg_pantry"
+[0m00:37:44.546070 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:37:44.546413 [debug] [Thread-3 (]: Using snowflake connection "model.snowchef.stg_recipe"
+[0m00:37:44.546581 [debug] [Thread-2 (]: On model.snowchef.stg_pantry: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "model.snowchef.stg_pantry"} */
+create or replace   view USER_DB_PUMA.RAW.stg_pantry
+  
+   as (
+    
+
+SELECT
+    USER_ID AS USER_PK,
+    INGREDIENT_ID AS INGREDIENT_PK,
+    QUANTITY,
+    UNIT,
+    LOADED_AT
+FROM USER_DB_PUMA.RAW.pantry
+  );
+[0m00:37:44.547370 [debug] [Thread-4 (]: Using snowflake connection "model.snowchef.stg_recipe_ingredient"
+[0m00:37:44.547866 [debug] [Thread-3 (]: On model.snowchef.stg_recipe: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "model.snowchef.stg_recipe"} */
+create or replace   view USER_DB_PUMA.RAW.stg_recipe
+  
+   as (
+    
+
+SELECT DISTINCT
+    RECIPE_ID AS RECIPE_PK,
+    TITLE,
+    INSTRUCTIONS,
+    SERVINGS,
+    SOURCE_URL,
+    CUISINE,
+    DIET_FLAGS,
+    LOADED_AT
+FROM USER_DB_PUMA.RAW.recipe
+  );
+[0m00:37:44.548228 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m00:37:44.548489 [debug] [Thread-4 (]: On model.snowchef.stg_recipe_ingredient: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "model.snowchef.stg_recipe_ingredient"} */
+create or replace   view USER_DB_PUMA.RAW.stg_recipe_ingredient
+  
+   as (
+    
+
+SELECT
+    RECIPE_ID AS RECIPE_PK,
+    INGREDIENT_ID AS INGREDIENT_PK,
+    QUANTITY,
+    UNIT,
+    RAW_TEXT
+FROM USER_DB_PUMA.RAW.recipe_ingredient
+  );
+[0m00:37:44.548745 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m00:37:44.549294 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m00:37:45.185228 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m00:37:45.225963 [debug] [Thread-3 (]: Timing info for model.snowchef.stg_recipe (execute): 00:37:44.541352 => 00:37:45.224592
+[0m00:37:45.227584 [debug] [Thread-3 (]: On model.snowchef.stg_recipe: Close
+[0m00:37:45.228402 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m00:37:45.233329 [debug] [Thread-1 (]: Timing info for model.snowchef.stg_ingredient (execute): 00:37:44.520836 => 00:37:45.233129
+[0m00:37:45.233940 [debug] [Thread-1 (]: On model.snowchef.stg_ingredient: Close
+[0m00:37:45.278436 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m00:37:45.281330 [debug] [Thread-2 (]: Timing info for model.snowchef.stg_pantry (execute): 00:37:44.539594 => 00:37:45.281163
+[0m00:37:45.282002 [debug] [Thread-2 (]: On model.snowchef.stg_pantry: Close
+[0m00:37:45.334830 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m00:37:45.337394 [debug] [Thread-4 (]: Timing info for model.snowchef.stg_recipe_ingredient (execute): 00:37:44.543346 => 00:37:45.337249
+[0m00:37:45.337900 [debug] [Thread-4 (]: On model.snowchef.stg_recipe_ingredient: Close
+[0m00:37:45.363122 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e589703e-6da0-4bf5-aab7-6cad4ae2102a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff9c890fb0>]}
+[0m00:37:45.365243 [info ] [Thread-3 (]: 3 of 6 OK created sql view model RAW.stg_recipe ................................ [[32mSUCCESS 1[0m in 0.86s]
+[0m00:37:45.367249 [debug] [Thread-3 (]: Finished running node model.snowchef.stg_recipe
+[0m00:37:45.368280 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e589703e-6da0-4bf5-aab7-6cad4ae2102a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff75685dc0>]}
+[0m00:37:45.369177 [info ] [Thread-1 (]: 1 of 6 OK created sql view model RAW.stg_ingredient ............................ [[32mSUCCESS 1[0m in 0.87s]
+[0m00:37:45.369732 [debug] [Thread-1 (]: Finished running node model.snowchef.stg_ingredient
+[0m00:37:45.436535 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e589703e-6da0-4bf5-aab7-6cad4ae2102a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff77916f60>]}
+[0m00:37:45.437207 [info ] [Thread-2 (]: 2 of 6 OK created sql view model RAW.stg_pantry ................................ [[32mSUCCESS 1[0m in 0.93s]
+[0m00:37:45.437956 [debug] [Thread-2 (]: Finished running node model.snowchef.stg_pantry
+[0m00:37:45.438493 [debug] [Thread-3 (]: Began running node model.snowchef.mart_user_inventory
+[0m00:37:45.438761 [info ] [Thread-3 (]: 5 of 6 START sql table model RAW_ANALYTICS.mart_user_inventory ................. [RUN]
+[0m00:37:45.439359 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly model.snowchef.stg_recipe, now model.snowchef.mart_user_inventory)
+[0m00:37:45.439602 [debug] [Thread-3 (]: Began compiling node model.snowchef.mart_user_inventory
+[0m00:37:45.442650 [debug] [Thread-3 (]: Writing injected SQL for node "model.snowchef.mart_user_inventory"
+[0m00:37:45.443572 [debug] [Thread-3 (]: Timing info for model.snowchef.mart_user_inventory (compile): 00:37:45.439759 => 00:37:45.443464
+[0m00:37:45.443764 [debug] [Thread-3 (]: Began executing node model.snowchef.mart_user_inventory
+[0m00:37:45.456372 [debug] [Thread-3 (]: Writing runtime sql for node "model.snowchef.mart_user_inventory"
+[0m00:37:45.457363 [debug] [Thread-3 (]: Using snowflake connection "model.snowchef.mart_user_inventory"
+[0m00:37:45.457616 [debug] [Thread-3 (]: On model.snowchef.mart_user_inventory: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "model.snowchef.mart_user_inventory"} */
+create or replace transient table USER_DB_PUMA.RAW_ANALYTICS.mart_user_inventory
+         as
+        (
+
+SELECT
+    p.USER_PK,
+    p.LOADED_AT,
+    p.QUANTITY,
+    p.UNIT,
+    i.INGREDIENT_NAME
+FROM USER_DB_PUMA.RAW.stg_pantry p
+INNER JOIN USER_DB_PUMA.RAW.stg_ingredient i
+    ON p.INGREDIENT_PK = i.INGREDIENT_PK
+        );
+[0m00:37:45.457830 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m00:37:45.480777 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e589703e-6da0-4bf5-aab7-6cad4ae2102a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7562bf20>]}
+[0m00:37:45.481210 [info ] [Thread-4 (]: 4 of 6 OK created sql view model RAW.stg_recipe_ingredient ..................... [[32mSUCCESS 1[0m in 0.97s]
+[0m00:37:45.481776 [debug] [Thread-4 (]: Finished running node model.snowchef.stg_recipe_ingredient
+[0m00:37:45.482199 [debug] [Thread-2 (]: Began running node model.snowchef.mart_recipe_availability
+[0m00:37:45.482448 [info ] [Thread-2 (]: 6 of 6 START sql table model RAW_ANALYTICS.mart_recipe_availability ............ [RUN]
+[0m00:37:45.482965 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly model.snowchef.stg_pantry, now model.snowchef.mart_recipe_availability)
+[0m00:37:45.483187 [debug] [Thread-2 (]: Began compiling node model.snowchef.mart_recipe_availability
+[0m00:37:45.485233 [debug] [Thread-2 (]: Writing injected SQL for node "model.snowchef.mart_recipe_availability"
+[0m00:37:45.485869 [debug] [Thread-2 (]: Timing info for model.snowchef.mart_recipe_availability (compile): 00:37:45.483324 => 00:37:45.485729
+[0m00:37:45.486048 [debug] [Thread-2 (]: Began executing node model.snowchef.mart_recipe_availability
+[0m00:37:45.487492 [debug] [Thread-2 (]: Writing runtime sql for node "model.snowchef.mart_recipe_availability"
+[0m00:37:45.488727 [debug] [Thread-2 (]: Using snowflake connection "model.snowchef.mart_recipe_availability"
+[0m00:37:45.488926 [debug] [Thread-2 (]: On model.snowchef.mart_recipe_availability: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "model.snowchef.mart_recipe_availability"} */
+create or replace transient table USER_DB_PUMA.RAW_ANALYTICS.mart_recipe_availability
+         as
+        (
+
+WITH recipe_needs AS (
+    -- 1. How many ingredients each recipe requires
+    SELECT
+        recipe_pk,
+        COUNT(DISTINCT ingredient_pk) AS total_required_count
+    FROM USER_DB_PUMA.RAW.stg_recipe_ingredient
+    GROUP BY recipe_pk
+),
+
+users AS (
+    -- 2. All distinct users from pantry
+    SELECT DISTINCT
+        user_pk
+    FROM USER_DB_PUMA.RAW.stg_pantry
+),
+
+user_matches AS (
+    -- 3. For each (user, recipe), how many ingredients the user has
+    SELECT
+        p.user_pk,
+        ri.recipe_pk,
+        COUNT(DISTINCT ri.ingredient_pk) AS matched_count
+    FROM USER_DB_PUMA.RAW.stg_pantry p
+    JOIN USER_DB_PUMA.RAW.stg_recipe_ingredient ri
+      ON p.ingredient_pk = ri.ingredient_pk
+    GROUP BY
+        p.user_pk,
+        ri.recipe_pk
+),
+
+user_recipe_grid AS (
+    -- 4. All combinations user × recipe so we also see 0-match recipes
+    SELECT
+        u.user_pk,
+        rn.recipe_pk,
+        rn.total_required_count
+    FROM users u
+    CROSS JOIN recipe_needs rn
+)
+
+-- 5. Final mart for recommendations
+SELECT
+    g.user_pk,
+    g.recipe_pk,
+    r.title,
+    r.instructions,
+    r.cuisine,
+    r.servings,
+    r.source_url,
+    g.total_required_count                           AS total_required_count,
+    COALESCE(um.matched_count, 0)                    AS matched_count,
+    g.total_required_count - COALESCE(um.matched_count, 0) AS missing_count,
+    COALESCE(um.matched_count, 0) * 100.0
+        / g.total_required_count                     AS match_percentage,
+    CASE
+        WHEN g.total_required_count - COALESCE(um.matched_count, 0) = 0
+        THEN TRUE
+        ELSE FALSE
+    END AS can_cook_now,
+    CASE
+        WHEN g.total_required_count - COALESCE(um.matched_count, 0) BETWEEN 1 AND 2
+        THEN TRUE
+        ELSE FALSE
+    END AS almost_can_cook
+FROM user_recipe_grid g
+JOIN USER_DB_PUMA.RAW.stg_recipe r
+  ON g.recipe_pk = r.recipe_pk
+LEFT JOIN user_matches um
+  ON um.user_pk = g.user_pk
+ AND um.recipe_pk = g.recipe_pk
+        );
+[0m00:37:45.489102 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m00:37:47.765116 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 2.0 seconds
+[0m00:37:47.772728 [debug] [Thread-3 (]: Timing info for model.snowchef.mart_user_inventory (execute): 00:37:45.443904 => 00:37:47.772331
+[0m00:37:47.773321 [debug] [Thread-3 (]: On model.snowchef.mart_user_inventory: Close
+[0m00:37:47.911475 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e589703e-6da0-4bf5-aab7-6cad4ae2102a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff74c87fb0>]}
+[0m00:37:47.913066 [info ] [Thread-3 (]: 5 of 6 OK created sql table model RAW_ANALYTICS.mart_user_inventory ............ [[32mSUCCESS 1[0m in 2.47s]
+[0m00:37:47.917234 [debug] [Thread-3 (]: Finished running node model.snowchef.mart_user_inventory
+[0m00:37:48.042727 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 3.0 seconds
+[0m00:37:48.044954 [debug] [Thread-2 (]: Timing info for model.snowchef.mart_recipe_availability (execute): 00:37:45.486178 => 00:37:48.044828
+[0m00:37:48.045348 [debug] [Thread-2 (]: On model.snowchef.mart_recipe_availability: Close
+[0m00:37:48.211256 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e589703e-6da0-4bf5-aab7-6cad4ae2102a', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff973b1d00>]}
+[0m00:37:48.213345 [info ] [Thread-2 (]: 6 of 6 OK created sql table model RAW_ANALYTICS.mart_recipe_availability ....... [[32mSUCCESS 1[0m in 2.73s]
+[0m00:37:48.215313 [debug] [Thread-2 (]: Finished running node model.snowchef.mart_recipe_availability
+[0m00:37:48.225625 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m00:37:48.226385 [debug] [MainThread]: Connection 'model.snowchef.mart_user_inventory' was properly closed.
+[0m00:37:48.226751 [debug] [MainThread]: Connection 'model.snowchef.mart_recipe_availability' was properly closed.
+[0m00:37:48.227134 [debug] [MainThread]: Connection 'model.snowchef.stg_ingredient' was properly closed.
+[0m00:37:48.227471 [debug] [MainThread]: Connection 'model.snowchef.stg_recipe_ingredient' was properly closed.
+[0m00:37:48.228139 [info ] [MainThread]: 
+[0m00:37:48.229330 [info ] [MainThread]: Finished running 4 view models, 2 table models in 0 hours 0 minutes and 5.29 seconds (5.29s).
+[0m00:37:48.231625 [debug] [MainThread]: Command end result
+[0m00:37:48.275291 [info ] [MainThread]: 
+[0m00:37:48.276238 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m00:37:48.276597 [info ] [MainThread]: 
+[0m00:37:48.277036 [info ] [MainThread]: Done. PASS=6 WARN=0 ERROR=0 SKIP=0 TOTAL=6
+[0m00:37:48.280323 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 6.0398393, "process_user_time": 2.996141, "process_kernel_time": 0.448312, "process_mem_max_rss": "219920", "process_out_blocks": "2783", "process_in_blocks": "0"}
+[0m00:37:48.281135 [debug] [MainThread]: Command `dbt run` succeeded at 00:37:48.281048 after 6.04 seconds
+[0m00:37:48.281678 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff97cce030>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff77b75460>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff755943b0>]}
+[0m00:37:48.281970 [debug] [MainThread]: Flushing usage events
+[0m00:37:51.043402 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff9a141190>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff9ae251f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff9a68b080>]}
+
+
+============================== 00:37:51.047202 | 7e3b8563-c85b-4298-9c51-80297cf6823c ==============================
+[0m00:37:51.047202 [info ] [MainThread]: Running with dbt=1.7.9
+[0m00:37:51.049265 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'profiles_dir': '/opt/airflow/dbt', 'log_path': '/opt/airflow/dbt/logs', 'debug': 'False', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'introspect': 'True', 'target_path': 'None', 'invocation_command': 'dbt test --profiles-dir /opt/airflow/dbt --project-dir /opt/airflow/dbt', 'send_anonymous_usage_stats': 'True'}
+[0m00:37:51.586826 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': '7e3b8563-c85b-4298-9c51-80297cf6823c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8197ab10>]}
+[0m00:37:51.633920 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': '7e3b8563-c85b-4298-9c51-80297cf6823c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7a3faae0>]}
+[0m00:37:51.634524 [info ] [MainThread]: Registered adapter: snowflake=1.7.2
+[0m00:37:51.639480 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m00:37:51.661553 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m00:37:51.661782 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m00:37:51.662221 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.snowchef.raw
+[0m00:37:51.665365 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': '7e3b8563-c85b-4298-9c51-80297cf6823c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7a13f020>]}
+[0m00:37:51.673349 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': '7e3b8563-c85b-4298-9c51-80297cf6823c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7a013830>]}
+[0m00:37:51.673591 [info ] [MainThread]: Found 6 models, 1 snapshot, 8 tests, 4 sources, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+[0m00:37:51.673966 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '7e3b8563-c85b-4298-9c51-80297cf6823c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7a3fa630>]}
+[0m00:37:51.675130 [info ] [MainThread]: 
+[0m00:37:51.675652 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m00:37:51.676659 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA_RAW_ANALYTICS'
+[0m00:37:51.683340 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA_RAW'
+[0m00:37:51.685712 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_RAW_ANALYTICS"
+[0m00:37:51.686842 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_RAW"
+[0m00:37:51.687252 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA_HISTORY'
+[0m00:37:51.687521 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW_ANALYTICS: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_RAW_ANALYTICS"} */
+show terse objects in USER_DB_PUMA.RAW_ANALYTICS limit 10000
+[0m00:37:51.687753 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_RAW"} */
+show terse objects in USER_DB_PUMA.RAW limit 10000
+[0m00:37:51.688872 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_HISTORY"
+[0m00:37:51.689088 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:37:51.689278 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:37:51.689470 [debug] [ThreadPool]: On list_USER_DB_PUMA_HISTORY: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_HISTORY"} */
+show terse objects in USER_DB_PUMA.HISTORY limit 10000
+[0m00:37:51.692376 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:37:52.186135 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 0.0 seconds
+[0m00:37:52.189509 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW_ANALYTICS: Close
+[0m00:37:52.209888 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m00:37:52.211970 [debug] [ThreadPool]: On list_USER_DB_PUMA_HISTORY: Close
+[0m00:37:52.328674 [debug] [ThreadPool]: SQL status: SUCCESS 20 in 1.0 seconds
+[0m00:37:52.330942 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW: Close
+[0m00:37:52.474565 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': '7e3b8563-c85b-4298-9c51-80297cf6823c', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7a0592e0>]}
+[0m00:37:52.475533 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m00:37:52.476109 [info ] [MainThread]: 
+[0m00:37:52.486510 [debug] [Thread-1 (]: Began running node test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9
+[0m00:37:52.486923 [debug] [Thread-2 (]: Began running node test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950
+[0m00:37:52.487284 [debug] [Thread-3 (]: Began running node test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d
+[0m00:37:52.487657 [info ] [Thread-1 (]: 1 of 8 START test not_null_stg_ingredient_INGREDIENT_NAME ...................... [RUN]
+[0m00:37:52.488109 [debug] [Thread-4 (]: Began running node test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105
+[0m00:37:52.488416 [info ] [Thread-2 (]: 2 of 8 START test not_null_stg_ingredient_INGREDIENT_PK ........................ [RUN]
+[0m00:37:52.488945 [info ] [Thread-3 (]: 3 of 8 START test not_null_stg_recipe_RECIPE_PK ................................ [RUN]
+[0m00:37:52.490196 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA_RAW, now test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9)
+[0m00:37:52.490572 [info ] [Thread-4 (]: 4 of 8 START test not_null_stg_recipe_ingredient_INGREDIENT_PK ................. [RUN]
+[0m00:37:52.491274 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA_HISTORY, now test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950)
+[0m00:37:52.491862 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA_RAW_ANALYTICS, now test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d)
+[0m00:37:52.492209 [debug] [Thread-1 (]: Began compiling node test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9
+[0m00:37:52.492874 [debug] [Thread-4 (]: Acquiring new snowflake connection 'test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105'
+[0m00:37:52.493204 [debug] [Thread-2 (]: Began compiling node test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950
+[0m00:37:52.493519 [debug] [Thread-3 (]: Began compiling node test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d
+[0m00:37:52.506745 [debug] [Thread-1 (]: Writing injected SQL for node "test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9"
+[0m00:37:52.507027 [debug] [Thread-4 (]: Began compiling node test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105
+[0m00:37:52.509815 [debug] [Thread-2 (]: Writing injected SQL for node "test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950"
+[0m00:37:52.512341 [debug] [Thread-3 (]: Writing injected SQL for node "test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d"
+[0m00:37:52.516612 [debug] [Thread-4 (]: Writing injected SQL for node "test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105"
+[0m00:37:52.517943 [debug] [Thread-1 (]: Timing info for test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9 (compile): 00:37:52.493762 => 00:37:52.517770
+[0m00:37:52.518328 [debug] [Thread-1 (]: Began executing node test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9
+[0m00:37:52.518669 [debug] [Thread-2 (]: Timing info for test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950 (compile): 00:37:52.507252 => 00:37:52.518519
+[0m00:37:52.525733 [debug] [Thread-4 (]: Timing info for test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105 (compile): 00:37:52.512995 => 00:37:52.525582
+[0m00:37:52.530490 [debug] [Thread-1 (]: Writing runtime sql for node "test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9"
+[0m00:37:52.530719 [debug] [Thread-2 (]: Began executing node test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950
+[0m00:37:52.531005 [debug] [Thread-4 (]: Began executing node test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105
+[0m00:37:52.531239 [debug] [Thread-3 (]: Timing info for test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d (compile): 00:37:52.510047 => 00:37:52.531128
+[0m00:37:52.532857 [debug] [Thread-2 (]: Writing runtime sql for node "test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950"
+[0m00:37:52.534337 [debug] [Thread-4 (]: Writing runtime sql for node "test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105"
+[0m00:37:52.534568 [debug] [Thread-3 (]: Began executing node test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d
+[0m00:37:52.535056 [debug] [Thread-1 (]: Using snowflake connection "test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9"
+[0m00:37:52.536521 [debug] [Thread-3 (]: Writing runtime sql for node "test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d"
+[0m00:37:52.536868 [debug] [Thread-2 (]: Using snowflake connection "test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950"
+[0m00:37:52.537100 [debug] [Thread-1 (]: On test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select INGREDIENT_NAME
+from USER_DB_PUMA.RAW.stg_ingredient
+where INGREDIENT_NAME is null
+
+
+
+      
+    ) dbt_internal_test
+[0m00:37:52.537527 [debug] [Thread-4 (]: Using snowflake connection "test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105"
+[0m00:37:52.537698 [debug] [Thread-2 (]: On test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select INGREDIENT_PK
+from USER_DB_PUMA.RAW.stg_ingredient
+where INGREDIENT_PK is null
+
+
+
+      
+    ) dbt_internal_test
+[0m00:37:52.537924 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:37:52.538277 [debug] [Thread-3 (]: Using snowflake connection "test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d"
+[0m00:37:52.538474 [debug] [Thread-4 (]: On test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select INGREDIENT_PK
+from USER_DB_PUMA.RAW.stg_recipe_ingredient
+where INGREDIENT_PK is null
+
+
+
+      
+    ) dbt_internal_test
+[0m00:37:52.538686 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m00:37:52.539604 [debug] [Thread-3 (]: On test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select RECIPE_PK
+from USER_DB_PUMA.RAW.stg_recipe
+where RECIPE_PK is null
+
+
+
+      
+    ) dbt_internal_test
+[0m00:37:52.539958 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m00:37:52.540959 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m00:37:52.962623 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.0 seconds
+[0m00:37:52.979188 [debug] [Thread-2 (]: Timing info for test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950 (execute): 00:37:52.531581 => 00:37:52.978672
+[0m00:37:52.980268 [debug] [Thread-2 (]: On test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950: Close
+[0m00:37:53.095044 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m00:37:53.097969 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m00:37:53.102239 [debug] [Thread-4 (]: Timing info for test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105 (execute): 00:37:52.533086 => 00:37:53.101906
+[0m00:37:53.105482 [debug] [Thread-1 (]: Timing info for test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9 (execute): 00:37:52.518867 => 00:37:53.105049
+[0m00:37:53.106434 [debug] [Thread-4 (]: On test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105: Close
+[0m00:37:53.107183 [debug] [Thread-1 (]: On test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9: Close
+[0m00:37:53.131963 [info ] [Thread-2 (]: 2 of 8 PASS not_null_stg_ingredient_INGREDIENT_PK .............................. [[32mPASS[0m in 0.64s]
+[0m00:37:53.133617 [debug] [Thread-2 (]: Finished running node test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950
+[0m00:37:53.134967 [debug] [Thread-2 (]: Began running node test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576
+[0m00:37:53.135821 [info ] [Thread-2 (]: 5 of 8 START test not_null_stg_recipe_ingredient_QUANTITY ...................... [RUN]
+[0m00:37:53.137061 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950, now test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576)
+[0m00:37:53.137568 [debug] [Thread-2 (]: Began compiling node test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576
+[0m00:37:53.143359 [debug] [Thread-2 (]: Writing injected SQL for node "test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576"
+[0m00:37:53.144622 [debug] [Thread-2 (]: Timing info for test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576 (compile): 00:37:53.137895 => 00:37:53.144479
+[0m00:37:53.144888 [debug] [Thread-2 (]: Began executing node test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576
+[0m00:37:53.146994 [debug] [Thread-2 (]: Writing runtime sql for node "test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576"
+[0m00:37:53.148865 [debug] [Thread-2 (]: Using snowflake connection "test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576"
+[0m00:37:53.149195 [debug] [Thread-2 (]: On test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select QUANTITY
+from USER_DB_PUMA.RAW.stg_recipe_ingredient
+where QUANTITY is null
+
+
+
+      
+    ) dbt_internal_test
+[0m00:37:53.149508 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m00:37:53.254210 [info ] [Thread-4 (]: 4 of 8 PASS not_null_stg_recipe_ingredient_INGREDIENT_PK ....................... [[32mPASS[0m in 0.76s]
+[0m00:37:53.255304 [debug] [Thread-4 (]: Finished running node test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105
+[0m00:37:53.256027 [debug] [Thread-4 (]: Began running node test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721
+[0m00:37:53.256524 [info ] [Thread-4 (]: 6 of 8 START test not_null_stg_recipe_ingredient_RECIPE_PK ..................... [RUN]
+[0m00:37:53.257505 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105, now test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721)
+[0m00:37:53.257972 [debug] [Thread-4 (]: Began compiling node test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721
+[0m00:37:53.263039 [debug] [Thread-4 (]: Writing injected SQL for node "test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721"
+[0m00:37:53.264678 [debug] [Thread-4 (]: Timing info for test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721 (compile): 00:37:53.258300 => 00:37:53.264486
+[0m00:37:53.265055 [debug] [Thread-4 (]: Began executing node test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721
+[0m00:37:53.267868 [debug] [Thread-4 (]: Writing runtime sql for node "test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721"
+[0m00:37:53.270360 [info ] [Thread-1 (]: 1 of 8 PASS not_null_stg_ingredient_INGREDIENT_NAME ............................ [[32mPASS[0m in 0.78s]
+[0m00:37:53.272092 [debug] [Thread-1 (]: Finished running node test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9
+[0m00:37:53.277119 [debug] [Thread-1 (]: Began running node test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918
+[0m00:37:53.277532 [info ] [Thread-1 (]: 7 of 8 START test unique_stg_ingredient_INGREDIENT_PK .......................... [RUN]
+[0m00:37:53.280197 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9, now test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918)
+[0m00:37:53.281029 [debug] [Thread-4 (]: Using snowflake connection "test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721"
+[0m00:37:53.281317 [debug] [Thread-1 (]: Began compiling node test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918
+[0m00:37:53.281634 [debug] [Thread-4 (]: On test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select RECIPE_PK
+from USER_DB_PUMA.RAW.stg_recipe_ingredient
+where RECIPE_PK is null
+
+
+
+      
+    ) dbt_internal_test
+[0m00:37:53.286950 [debug] [Thread-1 (]: Writing injected SQL for node "test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918"
+[0m00:37:53.287736 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m00:37:53.290770 [debug] [Thread-1 (]: Timing info for test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918 (compile): 00:37:53.281874 => 00:37:53.290215
+[0m00:37:53.291422 [debug] [Thread-1 (]: Began executing node test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918
+[0m00:37:53.294449 [debug] [Thread-1 (]: Writing runtime sql for node "test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918"
+[0m00:37:53.296078 [debug] [Thread-1 (]: Using snowflake connection "test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918"
+[0m00:37:53.297118 [debug] [Thread-1 (]: On test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    INGREDIENT_PK as unique_field,
+    count(*) as n_records
+
+from USER_DB_PUMA.RAW.stg_ingredient
+where INGREDIENT_PK is not null
+group by INGREDIENT_PK
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m00:37:53.298041 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:37:53.703985 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m00:37:53.705898 [debug] [Thread-3 (]: Timing info for test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d (execute): 00:37:52.535354 => 00:37:53.705745
+[0m00:37:53.706146 [debug] [Thread-3 (]: On test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d: Close
+[0m00:37:53.776098 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m00:37:53.779716 [debug] [Thread-2 (]: Timing info for test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576 (execute): 00:37:53.145046 => 00:37:53.779455
+[0m00:37:53.780405 [debug] [Thread-2 (]: On test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576: Close
+[0m00:37:53.780924 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.0 seconds
+[0m00:37:53.782744 [debug] [Thread-4 (]: Timing info for test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721 (execute): 00:37:53.265458 => 00:37:53.782642
+[0m00:37:53.783319 [debug] [Thread-4 (]: On test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721: Close
+[0m00:37:53.856853 [info ] [Thread-3 (]: 3 of 8 PASS not_null_stg_recipe_RECIPE_PK ...................................... [[32mPASS[0m in 1.37s]
+[0m00:37:53.858008 [debug] [Thread-3 (]: Finished running node test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d
+[0m00:37:53.858583 [debug] [Thread-3 (]: Began running node test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f
+[0m00:37:53.858848 [info ] [Thread-3 (]: 8 of 8 START test unique_stg_recipe_RECIPE_PK .................................. [RUN]
+[0m00:37:53.859451 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d, now test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f)
+[0m00:37:53.859676 [debug] [Thread-3 (]: Began compiling node test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f
+[0m00:37:53.862640 [debug] [Thread-3 (]: Writing injected SQL for node "test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f"
+[0m00:37:53.863449 [debug] [Thread-3 (]: Timing info for test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f (compile): 00:37:53.859802 => 00:37:53.863340
+[0m00:37:53.863805 [debug] [Thread-3 (]: Began executing node test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f
+[0m00:37:53.865583 [debug] [Thread-3 (]: Writing runtime sql for node "test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f"
+[0m00:37:53.867178 [debug] [Thread-3 (]: Using snowflake connection "test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f"
+[0m00:37:53.867405 [debug] [Thread-3 (]: On test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    RECIPE_PK as unique_field,
+    count(*) as n_records
+
+from USER_DB_PUMA.RAW.stg_recipe
+where RECIPE_PK is not null
+group by RECIPE_PK
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m00:37:53.867636 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m00:37:53.927735 [info ] [Thread-2 (]: 5 of 8 PASS not_null_stg_recipe_ingredient_QUANTITY ............................ [[32mPASS[0m in 0.79s]
+[0m00:37:53.928656 [debug] [Thread-2 (]: Finished running node test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576
+[0m00:37:53.937015 [info ] [Thread-4 (]: 6 of 8 PASS not_null_stg_recipe_ingredient_RECIPE_PK ........................... [[32mPASS[0m in 0.68s]
+[0m00:37:53.937471 [debug] [Thread-4 (]: Finished running node test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721
+[0m00:37:54.019926 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m00:37:54.022007 [debug] [Thread-1 (]: Timing info for test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918 (execute): 00:37:53.291907 => 00:37:54.021802
+[0m00:37:54.022321 [debug] [Thread-1 (]: On test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918: Close
+[0m00:37:54.175730 [info ] [Thread-1 (]: 7 of 8 PASS unique_stg_ingredient_INGREDIENT_PK ................................ [[32mPASS[0m in 0.90s]
+[0m00:37:54.177165 [debug] [Thread-1 (]: Finished running node test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918
+[0m00:37:54.351316 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.0 seconds
+[0m00:37:54.354323 [debug] [Thread-3 (]: Timing info for test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f (execute): 00:37:53.864001 => 00:37:54.354136
+[0m00:37:54.354786 [debug] [Thread-3 (]: On test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f: Close
+[0m00:37:54.476851 [info ] [Thread-3 (]: 8 of 8 PASS unique_stg_recipe_RECIPE_PK ........................................ [[32mPASS[0m in 0.62s]
+[0m00:37:54.478058 [debug] [Thread-3 (]: Finished running node test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f
+[0m00:37:54.481868 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m00:37:54.482300 [debug] [MainThread]: Connection 'test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f' was properly closed.
+[0m00:37:54.482646 [debug] [MainThread]: Connection 'test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918' was properly closed.
+[0m00:37:54.482953 [debug] [MainThread]: Connection 'test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576' was properly closed.
+[0m00:37:54.483274 [debug] [MainThread]: Connection 'test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721' was properly closed.
+[0m00:37:54.483687 [info ] [MainThread]: 
+[0m00:37:54.484239 [info ] [MainThread]: Finished running 8 tests in 0 hours 0 minutes and 2.81 seconds (2.81s).
+[0m00:37:54.485680 [debug] [MainThread]: Command end result
+[0m00:37:54.498654 [info ] [MainThread]: 
+[0m00:37:54.499208 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m00:37:54.499596 [info ] [MainThread]: 
+[0m00:37:54.500234 [info ] [MainThread]: Done. PASS=8 WARN=0 ERROR=0 SKIP=0 TOTAL=8
+[0m00:37:54.503072 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 3.4796758, "process_user_time": 2.888457, "process_kernel_time": 0.33031, "process_mem_max_rss": "216760", "process_out_blocks": "1894", "process_in_blocks": "0"}
+[0m00:37:54.503844 [debug] [MainThread]: Command `dbt test` succeeded at 00:37:54.503712 after 3.48 seconds
+[0m00:37:54.504391 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff9a2faa20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff7a13d460>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff9e1a2750>]}
+[0m00:37:54.504764 [debug] [MainThread]: Flushing usage events
+[0m00:37:57.139833 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffaa412b70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffaa91a180>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffaa48e060>]}
+
+
+============================== 00:37:57.150956 | c1dc4f8a-a086-435c-99a6-bb7aef2d3073 ==============================
+[0m00:37:57.150956 [info ] [MainThread]: Running with dbt=1.7.9
+[0m00:37:57.153564 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'debug': 'False', 'log_path': '/opt/airflow/dbt/logs', 'profiles_dir': '/opt/airflow/dbt', 'version_check': 'True', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'invocation_command': 'dbt snapshot --profiles-dir /opt/airflow/dbt --project-dir /opt/airflow/dbt', 'static_parser': 'True', 'introspect': 'True', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m00:37:58.148120 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'c1dc4f8a-a086-435c-99a6-bb7aef2d3073', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8a3f40b0>]}
+[0m00:37:58.217878 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'c1dc4f8a-a086-435c-99a6-bb7aef2d3073', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff90908b30>]}
+[0m00:37:58.218605 [info ] [MainThread]: Registered adapter: snowflake=1.7.2
+[0m00:37:58.225303 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m00:37:58.245079 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m00:37:58.245554 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m00:37:58.246727 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.snowchef.raw
+[0m00:37:58.253571 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'c1dc4f8a-a086-435c-99a6-bb7aef2d3073', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8a56e6f0>]}
+[0m00:37:58.263112 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'c1dc4f8a-a086-435c-99a6-bb7aef2d3073', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8a17fe60>]}
+[0m00:37:58.263423 [info ] [MainThread]: Found 6 models, 1 snapshot, 8 tests, 4 sources, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+[0m00:37:58.263930 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c1dc4f8a-a086-435c-99a6-bb7aef2d3073', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8bf01a00>]}
+[0m00:37:58.265163 [info ] [MainThread]: 
+[0m00:37:58.265850 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m00:37:58.266896 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA'
+[0m00:37:58.274462 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA"
+[0m00:37:58.274666 [debug] [ThreadPool]: On list_USER_DB_PUMA: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA"} */
+show terse schemas in database USER_DB_PUMA
+    limit 10000
+[0m00:37:58.274843 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:37:58.771755 [debug] [ThreadPool]: SQL status: SUCCESS 10 in 0.0 seconds
+[0m00:37:58.781674 [debug] [ThreadPool]: On list_USER_DB_PUMA: Close
+[0m00:37:58.964937 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA, now list_USER_DB_PUMA_RAW)
+[0m00:37:58.973450 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA_RAW_ANALYTICS'
+[0m00:37:58.976526 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_RAW"
+[0m00:37:58.978673 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_RAW_ANALYTICS"
+[0m00:37:58.979344 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA_HISTORY'
+[0m00:37:58.979749 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_RAW"} */
+show terse objects in USER_DB_PUMA.RAW limit 10000
+[0m00:37:58.980139 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW_ANALYTICS: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_RAW_ANALYTICS"} */
+show terse objects in USER_DB_PUMA.RAW_ANALYTICS limit 10000
+[0m00:37:58.981881 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_HISTORY"
+[0m00:37:58.982216 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m00:37:58.982522 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:37:58.982781 [debug] [ThreadPool]: On list_USER_DB_PUMA_HISTORY: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_HISTORY"} */
+show terse objects in USER_DB_PUMA.HISTORY limit 10000
+[0m00:37:58.986168 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m00:37:59.391119 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.0 seconds
+[0m00:37:59.394434 [debug] [ThreadPool]: On list_USER_DB_PUMA_HISTORY: Close
+[0m00:37:59.409762 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 0.0 seconds
+[0m00:37:59.410774 [debug] [ThreadPool]: SQL status: SUCCESS 20 in 0.0 seconds
+[0m00:37:59.412363 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW_ANALYTICS: Close
+[0m00:37:59.414115 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW: Close
+[0m00:37:59.581736 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'c1dc4f8a-a086-435c-99a6-bb7aef2d3073', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8a430d10>]}
+[0m00:37:59.583868 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m00:37:59.586327 [info ] [MainThread]: 
+[0m00:37:59.599455 [debug] [Thread-1 (]: Began running node snapshot.snowchef.recipe_snapshot
+[0m00:37:59.600112 [info ] [Thread-1 (]: 1 of 1 START snapshot HISTORY.recipe_snapshot .................................. [RUN]
+[0m00:37:59.601081 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA_RAW_ANALYTICS, now snapshot.snowchef.recipe_snapshot)
+[0m00:37:59.601438 [debug] [Thread-1 (]: Began compiling node snapshot.snowchef.recipe_snapshot
+[0m00:37:59.609993 [debug] [Thread-1 (]: Timing info for snapshot.snowchef.recipe_snapshot (compile): 00:37:59.601737 => 00:37:59.609755
+[0m00:37:59.610332 [debug] [Thread-1 (]: Began executing node snapshot.snowchef.recipe_snapshot
+[0m00:37:59.645724 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m00:37:59.645986 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+select * from (
+        select TITLE, INSTRUCTIONS, SERVINGS, SOURCE_URL, CUISINE, DIET_FLAGS from (
+                
+
+
+
+SELECT *
+FROM USER_DB_PUMA.RAW.stg_recipe 
+
+            ) subq
+    ) as __dbt_sbq
+    where false
+    limit 0
+[0m00:37:59.646217 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m00:38:00.191517 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 1.0 seconds
+[0m00:38:00.199239 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m00:38:00.200111 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+describe table "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT"
+[0m00:38:00.327634 [debug] [Thread-1 (]: SQL status: SUCCESS 12 in 0.0 seconds
+[0m00:38:00.333606 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m00:38:00.333929 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+describe table "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT"
+[0m00:38:00.439570 [debug] [Thread-1 (]: SQL status: SUCCESS 12 in 0.0 seconds
+[0m00:38:00.476038 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m00:38:00.476639 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+create or replace temporary table "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT__dbt_tmp"
+         as
+        (with snapshot_query as (
+
+        
+
+
+
+SELECT *
+FROM USER_DB_PUMA.RAW.stg_recipe 
+
+
+    ),
+
+    snapshotted_data as (
+
+        select *,
+            RECIPE_PK as dbt_unique_key
+
+        from "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT"
+        where dbt_valid_to is null
+
+    ),
+
+    insertions_source_data as (
+
+        select
+            *,
+            RECIPE_PK as dbt_unique_key,
+            to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as dbt_updated_at,
+            to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as dbt_valid_from,
+            nullif(to_timestamp_ntz(convert_timezone('UTC', current_timestamp())), to_timestamp_ntz(convert_timezone('UTC', current_timestamp()))) as dbt_valid_to,
+            md5(coalesce(cast(RECIPE_PK as varchar ), '')
+         || '|' || coalesce(cast(to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as varchar ), '')
+        ) as dbt_scd_id
+
+        from snapshot_query
+    ),
+
+    updates_source_data as (
+
+        select
+            *,
+            RECIPE_PK as dbt_unique_key,
+            to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as dbt_updated_at,
+            to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as dbt_valid_from,
+            to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as dbt_valid_to
+
+        from snapshot_query
+    ),
+
+    deletes_source_data as (
+
+        select
+            *,
+            RECIPE_PK as dbt_unique_key
+        from snapshot_query
+    ),
+    
+
+    insertions as (
+
+        select
+            'insert' as dbt_change_type,
+            source_data.*
+
+        from insertions_source_data as source_data
+        left outer join snapshotted_data on snapshotted_data.dbt_unique_key = source_data.dbt_unique_key
+        where snapshotted_data.dbt_unique_key is null
+           or (
+                snapshotted_data.dbt_unique_key is not null
+            and (
+                (snapshotted_data."TITLE" != source_data."TITLE"
+        or
+        (
+            ((snapshotted_data."TITLE" is null) and not (source_data."TITLE" is null))
+            or
+            ((not snapshotted_data."TITLE" is null) and (source_data."TITLE" is null))
+        ) or snapshotted_data."INSTRUCTIONS" != source_data."INSTRUCTIONS"
+        or
+        (
+            ((snapshotted_data."INSTRUCTIONS" is null) and not (source_data."INSTRUCTIONS" is null))
+            or
+            ((not snapshotted_data."INSTRUCTIONS" is null) and (source_data."INSTRUCTIONS" is null))
+        ) or snapshotted_data."SERVINGS" != source_data."SERVINGS"
+        or
+        (
+            ((snapshotted_data."SERVINGS" is null) and not (source_data."SERVINGS" is null))
+            or
+            ((not snapshotted_data."SERVINGS" is null) and (source_data."SERVINGS" is null))
+        ) or snapshotted_data."SOURCE_URL" != source_data."SOURCE_URL"
+        or
+        (
+            ((snapshotted_data."SOURCE_URL" is null) and not (source_data."SOURCE_URL" is null))
+            or
+            ((not snapshotted_data."SOURCE_URL" is null) and (source_data."SOURCE_URL" is null))
+        ) or snapshotted_data."CUISINE" != source_data."CUISINE"
+        or
+        (
+            ((snapshotted_data."CUISINE" is null) and not (source_data."CUISINE" is null))
+            or
+            ((not snapshotted_data."CUISINE" is null) and (source_data."CUISINE" is null))
+        ) or snapshotted_data."DIET_FLAGS" != source_data."DIET_FLAGS"
+        or
+        (
+            ((snapshotted_data."DIET_FLAGS" is null) and not (source_data."DIET_FLAGS" is null))
+            or
+            ((not snapshotted_data."DIET_FLAGS" is null) and (source_data."DIET_FLAGS" is null))
+        ))
+            )
+        )
+
+    ),
+
+    updates as (
+
+        select
+            'update' as dbt_change_type,
+            source_data.*,
+            snapshotted_data.dbt_scd_id
+
+        from updates_source_data as source_data
+        join snapshotted_data on snapshotted_data.dbt_unique_key = source_data.dbt_unique_key
+        where (
+            (snapshotted_data."TITLE" != source_data."TITLE"
+        or
+        (
+            ((snapshotted_data."TITLE" is null) and not (source_data."TITLE" is null))
+            or
+            ((not snapshotted_data."TITLE" is null) and (source_data."TITLE" is null))
+        ) or snapshotted_data."INSTRUCTIONS" != source_data."INSTRUCTIONS"
+        or
+        (
+            ((snapshotted_data."INSTRUCTIONS" is null) and not (source_data."INSTRUCTIONS" is null))
+            or
+            ((not snapshotted_data."INSTRUCTIONS" is null) and (source_data."INSTRUCTIONS" is null))
+        ) or snapshotted_data."SERVINGS" != source_data."SERVINGS"
+        or
+        (
+            ((snapshotted_data."SERVINGS" is null) and not (source_data."SERVINGS" is null))
+            or
+            ((not snapshotted_data."SERVINGS" is null) and (source_data."SERVINGS" is null))
+        ) or snapshotted_data."SOURCE_URL" != source_data."SOURCE_URL"
+        or
+        (
+            ((snapshotted_data."SOURCE_URL" is null) and not (source_data."SOURCE_URL" is null))
+            or
+            ((not snapshotted_data."SOURCE_URL" is null) and (source_data."SOURCE_URL" is null))
+        ) or snapshotted_data."CUISINE" != source_data."CUISINE"
+        or
+        (
+            ((snapshotted_data."CUISINE" is null) and not (source_data."CUISINE" is null))
+            or
+            ((not snapshotted_data."CUISINE" is null) and (source_data."CUISINE" is null))
+        ) or snapshotted_data."DIET_FLAGS" != source_data."DIET_FLAGS"
+        or
+        (
+            ((snapshotted_data."DIET_FLAGS" is null) and not (source_data."DIET_FLAGS" is null))
+            or
+            ((not snapshotted_data."DIET_FLAGS" is null) and (source_data."DIET_FLAGS" is null))
+        ))
+        )
+    ),
+
+    deletes as (
+
+        select
+            'delete' as dbt_change_type,
+            source_data.*,
+            to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as dbt_valid_from,
+            to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as dbt_updated_at,
+            to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as dbt_valid_to,
+            snapshotted_data.dbt_scd_id
+
+        from snapshotted_data
+        left join deletes_source_data as source_data on snapshotted_data.dbt_unique_key = source_data.dbt_unique_key
+        where source_data.dbt_unique_key is null
+    )
+
+    select * from insertions
+    union all
+    select * from updates
+    union all
+    select * from deletes
+
+        );
+[0m00:38:02.881927 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 2.0 seconds
+[0m00:38:02.897144 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m00:38:02.897758 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+describe table "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT__dbt_tmp"
+[0m00:38:03.021645 [debug] [Thread-1 (]: SQL status: SUCCESS 14 in 0.0 seconds
+[0m00:38:03.028356 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m00:38:03.029059 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+describe table "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT"
+[0m00:38:03.141838 [debug] [Thread-1 (]: SQL status: SUCCESS 12 in 0.0 seconds
+[0m00:38:03.157227 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m00:38:03.158858 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+describe table "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT__dbt_tmp"
+[0m00:38:03.264100 [debug] [Thread-1 (]: SQL status: SUCCESS 14 in 0.0 seconds
+[0m00:38:03.267188 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m00:38:03.267437 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+describe table "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT"
+[0m00:38:03.339362 [debug] [Thread-1 (]: SQL status: SUCCESS 12 in 0.0 seconds
+[0m00:38:03.347111 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m00:38:03.347400 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+describe table "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT__dbt_tmp"
+[0m00:38:03.445622 [debug] [Thread-1 (]: SQL status: SUCCESS 14 in 0.0 seconds
+[0m00:38:03.454607 [debug] [Thread-1 (]: Writing runtime sql for node "snapshot.snowchef.recipe_snapshot"
+[0m00:38:03.457386 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m00:38:03.457772 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+BEGIN
+[0m00:38:03.626365 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 0.0 seconds
+[0m00:38:03.627873 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m00:38:03.628633 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+merge into "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT" as DBT_INTERNAL_DEST
+    using "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT__dbt_tmp" as DBT_INTERNAL_SOURCE
+    on DBT_INTERNAL_SOURCE.dbt_scd_id = DBT_INTERNAL_DEST.dbt_scd_id
+
+    when matched
+     and DBT_INTERNAL_DEST.dbt_valid_to is null
+     and DBT_INTERNAL_SOURCE.dbt_change_type in ('update', 'delete')
+        then update
+        set dbt_valid_to = DBT_INTERNAL_SOURCE.dbt_valid_to
+
+    when not matched
+     and DBT_INTERNAL_SOURCE.dbt_change_type = 'insert'
+        then insert ("RECIPE_PK", "TITLE", "INSTRUCTIONS", "SERVINGS", "SOURCE_URL", "CUISINE", "DIET_FLAGS", "LOADED_AT", "DBT_UPDATED_AT", "DBT_VALID_FROM", "DBT_VALID_TO", "DBT_SCD_ID")
+        values ("RECIPE_PK", "TITLE", "INSTRUCTIONS", "SERVINGS", "SOURCE_URL", "CUISINE", "DIET_FLAGS", "LOADED_AT", "DBT_UPDATED_AT", "DBT_VALID_FROM", "DBT_VALID_TO", "DBT_SCD_ID")
+
+;
+[0m00:38:04.465725 [debug] [Thread-1 (]: SQL status: SUCCESS 3 in 1.0 seconds
+[0m00:38:04.475544 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m00:38:04.476538 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+COMMIT
+[0m00:38:04.880961 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 0.0 seconds
+[0m00:38:04.921734 [debug] [Thread-1 (]: Timing info for snapshot.snowchef.recipe_snapshot (execute): 00:37:59.610528 => 00:38:04.921325
+[0m00:38:04.922298 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: Close
+[0m00:38:05.092503 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'c1dc4f8a-a086-435c-99a6-bb7aef2d3073', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff88678950>]}
+[0m00:38:05.094963 [info ] [Thread-1 (]: 1 of 1 OK snapshotted HISTORY.recipe_snapshot .................................. [[32mSUCCESS 3[0m in 5.49s]
+[0m00:38:05.100883 [debug] [Thread-1 (]: Finished running node snapshot.snowchef.recipe_snapshot
+[0m00:38:05.128688 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m00:38:05.129528 [debug] [MainThread]: Connection 'list_USER_DB_PUMA_RAW' was properly closed.
+[0m00:38:05.129909 [debug] [MainThread]: Connection 'snapshot.snowchef.recipe_snapshot' was properly closed.
+[0m00:38:05.130353 [debug] [MainThread]: Connection 'list_USER_DB_PUMA_HISTORY' was properly closed.
+[0m00:38:05.133289 [info ] [MainThread]: 
+[0m00:38:05.135657 [info ] [MainThread]: Finished running 1 snapshot in 0 hours 0 minutes and 6.87 seconds (6.87s).
+[0m00:38:05.138761 [debug] [MainThread]: Command end result
+[0m00:38:05.190467 [info ] [MainThread]: 
+[0m00:38:05.191828 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m00:38:05.192974 [info ] [MainThread]: 
+[0m00:38:05.193751 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m00:38:05.198132 [debug] [MainThread]: Resource report: {"command_name": "snapshot", "command_success": true, "command_wall_clock_time": 8.107546, "process_user_time": 3.298202, "process_kernel_time": 0.41303, "process_mem_max_rss": "215248", "process_out_blocks": "1862", "process_in_blocks": "0"}
+[0m00:38:05.198870 [debug] [MainThread]: Command `dbt snapshot` succeeded at 00:38:05.198736 after 8.11 seconds
+[0m00:38:05.199412 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffaf476a20>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8a882840>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffaf4a7aa0>]}
+[0m00:38:05.199692 [debug] [MainThread]: Flushing usage events
+[0m02:11:24.530639 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa5ce3aa0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa656e420>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa5ce2660>]}
+
+
+============================== 02:11:24.538137 | e5c70099-4a55-41b0-a85f-b91a5ae08cab ==============================
+[0m02:11:24.538137 [info ] [MainThread]: Running with dbt=1.7.9
+[0m02:11:24.540660 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'fail_fast': 'False', 'version_check': 'True', 'log_path': '/opt/airflow/dbt/logs', 'debug': 'False', 'profiles_dir': '/opt/airflow/dbt', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt run --profiles-dir /opt/airflow/dbt --project-dir /opt/airflow/dbt', 'target_path': 'None', 'static_parser': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m02:11:26.414772 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'e5c70099-4a55-41b0-a85f-b91a5ae08cab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff875fea20>]}
+[0m02:11:26.486547 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'e5c70099-4a55-41b0-a85f-b91a5ae08cab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff86cd6150>]}
+[0m02:11:26.487314 [info ] [MainThread]: Registered adapter: snowflake=1.7.2
+[0m02:11:26.495346 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m02:11:26.524124 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 1 files changed.
+[0m02:11:26.524802 [debug] [MainThread]: Partial parsing: updated file: snowchef://models/marts/mart_recipe_availability.sql
+[0m02:11:26.602576 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.snowchef.raw
+[0m02:11:26.605851 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'e5c70099-4a55-41b0-a85f-b91a5ae08cab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff85b86660>]}
+[0m02:11:26.615449 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'e5c70099-4a55-41b0-a85f-b91a5ae08cab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff85bd7860>]}
+[0m02:11:26.616185 [info ] [MainThread]: Found 6 models, 1 snapshot, 8 tests, 4 sources, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+[0m02:11:26.616613 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e5c70099-4a55-41b0-a85f-b91a5ae08cab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa5e99f10>]}
+[0m02:11:26.618181 [info ] [MainThread]: 
+[0m02:11:26.618781 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m02:11:26.619749 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA'
+[0m02:11:26.626621 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA'
+[0m02:11:26.627158 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA"
+[0m02:11:26.628409 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA"
+[0m02:11:26.628622 [debug] [ThreadPool]: On list_USER_DB_PUMA: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA"} */
+show terse schemas in database USER_DB_PUMA
+    limit 10000
+[0m02:11:26.628796 [debug] [ThreadPool]: On list_USER_DB_PUMA: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA"} */
+show terse schemas in database USER_DB_PUMA
+    limit 10000
+[0m02:11:26.628981 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:11:26.629130 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:11:27.331586 [debug] [ThreadPool]: SQL status: SUCCESS 10 in 1.0 seconds
+[0m02:11:27.336521 [debug] [ThreadPool]: On list_USER_DB_PUMA: Close
+[0m02:11:27.372343 [debug] [ThreadPool]: SQL status: SUCCESS 10 in 1.0 seconds
+[0m02:11:27.374641 [debug] [ThreadPool]: On list_USER_DB_PUMA: Close
+[0m02:11:27.529793 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA, now list_USER_DB_PUMA_RAW_ANALYTICS)
+[0m02:11:27.531262 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA, now list_USER_DB_PUMA_HISTORY)
+[0m02:11:27.542736 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_RAW_ANALYTICS"
+[0m02:11:27.546399 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_HISTORY"
+[0m02:11:27.547236 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA_RAW'
+[0m02:11:27.547604 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW_ANALYTICS: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_RAW_ANALYTICS"} */
+show terse objects in USER_DB_PUMA.RAW_ANALYTICS limit 10000
+[0m02:11:27.547950 [debug] [ThreadPool]: On list_USER_DB_PUMA_HISTORY: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_HISTORY"} */
+show terse objects in USER_DB_PUMA.HISTORY limit 10000
+[0m02:11:27.549837 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_RAW"
+[0m02:11:27.550131 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m02:11:27.550386 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m02:11:27.550663 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_RAW"} */
+show terse objects in USER_DB_PUMA.RAW limit 10000
+[0m02:11:27.554127 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:11:28.102296 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 1.0 seconds
+[0m02:11:28.104612 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW_ANALYTICS: Close
+[0m02:11:28.180073 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m02:11:28.182130 [debug] [ThreadPool]: On list_USER_DB_PUMA_HISTORY: Close
+[0m02:11:28.327340 [debug] [ThreadPool]: SQL status: SUCCESS 20 in 1.0 seconds
+[0m02:11:28.330738 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW: Close
+[0m02:11:28.458815 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'e5c70099-4a55-41b0-a85f-b91a5ae08cab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff85a62270>]}
+[0m02:11:28.460765 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m02:11:28.463478 [info ] [MainThread]: 
+[0m02:11:28.482778 [debug] [Thread-1 (]: Began running node model.snowchef.stg_ingredient
+[0m02:11:28.483158 [debug] [Thread-2 (]: Began running node model.snowchef.stg_pantry
+[0m02:11:28.483515 [debug] [Thread-3 (]: Began running node model.snowchef.stg_recipe
+[0m02:11:28.484290 [info ] [Thread-1 (]: 1 of 6 START sql view model RAW.stg_ingredient ................................. [RUN]
+[0m02:11:28.484706 [debug] [Thread-4 (]: Began running node model.snowchef.stg_recipe_ingredient
+[0m02:11:28.485120 [info ] [Thread-2 (]: 2 of 6 START sql view model RAW.stg_pantry ..................................... [RUN]
+[0m02:11:28.485654 [info ] [Thread-3 (]: 3 of 6 START sql view model RAW.stg_recipe ..................................... [RUN]
+[0m02:11:28.486371 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA_RAW, now model.snowchef.stg_ingredient)
+[0m02:11:28.486765 [info ] [Thread-4 (]: 4 of 6 START sql view model RAW.stg_recipe_ingredient .......................... [RUN]
+[0m02:11:28.488035 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA_HISTORY, now model.snowchef.stg_pantry)
+[0m02:11:28.488540 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA_RAW_ANALYTICS, now model.snowchef.stg_recipe)
+[0m02:11:28.488896 [debug] [Thread-1 (]: Began compiling node model.snowchef.stg_ingredient
+[0m02:11:28.489661 [debug] [Thread-4 (]: Acquiring new snowflake connection 'model.snowchef.stg_recipe_ingredient'
+[0m02:11:28.489948 [debug] [Thread-2 (]: Began compiling node model.snowchef.stg_pantry
+[0m02:11:28.490222 [debug] [Thread-3 (]: Began compiling node model.snowchef.stg_recipe
+[0m02:11:28.496470 [debug] [Thread-1 (]: Writing injected SQL for node "model.snowchef.stg_ingredient"
+[0m02:11:28.496782 [debug] [Thread-4 (]: Began compiling node model.snowchef.stg_recipe_ingredient
+[0m02:11:28.498615 [debug] [Thread-2 (]: Writing injected SQL for node "model.snowchef.stg_pantry"
+[0m02:11:28.500590 [debug] [Thread-3 (]: Writing injected SQL for node "model.snowchef.stg_recipe"
+[0m02:11:28.502753 [debug] [Thread-4 (]: Writing injected SQL for node "model.snowchef.stg_recipe_ingredient"
+[0m02:11:28.504603 [debug] [Thread-1 (]: Timing info for model.snowchef.stg_ingredient (compile): 02:11:28.490415 => 02:11:28.504404
+[0m02:11:28.505169 [debug] [Thread-1 (]: Began executing node model.snowchef.stg_ingredient
+[0m02:11:28.505507 [debug] [Thread-2 (]: Timing info for model.snowchef.stg_pantry (compile): 02:11:28.496994 => 02:11:28.505384
+[0m02:11:28.505739 [debug] [Thread-3 (]: Timing info for model.snowchef.stg_recipe (compile): 02:11:28.498835 => 02:11:28.505616
+[0m02:11:28.513053 [debug] [Thread-4 (]: Timing info for model.snowchef.stg_recipe_ingredient (compile): 02:11:28.500978 => 02:11:28.512904
+[0m02:11:28.523021 [debug] [Thread-1 (]: Writing runtime sql for node "model.snowchef.stg_ingredient"
+[0m02:11:28.523239 [debug] [Thread-2 (]: Began executing node model.snowchef.stg_pantry
+[0m02:11:28.523475 [debug] [Thread-3 (]: Began executing node model.snowchef.stg_recipe
+[0m02:11:28.523683 [debug] [Thread-4 (]: Began executing node model.snowchef.stg_recipe_ingredient
+[0m02:11:28.525568 [debug] [Thread-2 (]: Writing runtime sql for node "model.snowchef.stg_pantry"
+[0m02:11:28.527285 [debug] [Thread-3 (]: Writing runtime sql for node "model.snowchef.stg_recipe"
+[0m02:11:28.529820 [debug] [Thread-4 (]: Writing runtime sql for node "model.snowchef.stg_recipe_ingredient"
+[0m02:11:28.530290 [debug] [Thread-1 (]: Using snowflake connection "model.snowchef.stg_ingredient"
+[0m02:11:28.530957 [debug] [Thread-2 (]: Using snowflake connection "model.snowchef.stg_pantry"
+[0m02:11:28.531153 [debug] [Thread-1 (]: On model.snowchef.stg_ingredient: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "model.snowchef.stg_ingredient"} */
+create or replace   view USER_DB_PUMA.RAW.stg_ingredient
+  
+   as (
+    
+
+SELECT DISTINCT
+    INGREDIENT_ID AS INGREDIENT_PK,
+    NAME AS INGREDIENT_NAME
+FROM USER_DB_PUMA.RAW.ingredient
+  );
+[0m02:11:28.531431 [debug] [Thread-2 (]: On model.snowchef.stg_pantry: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "model.snowchef.stg_pantry"} */
+create or replace   view USER_DB_PUMA.RAW.stg_pantry
+  
+   as (
+    
+
+SELECT
+    USER_ID AS USER_PK,
+    INGREDIENT_ID AS INGREDIENT_PK,
+    QUANTITY,
+    UNIT,
+    LOADED_AT
+FROM USER_DB_PUMA.RAW.pantry
+  );
+[0m02:11:28.531790 [debug] [Thread-3 (]: Using snowflake connection "model.snowchef.stg_recipe"
+[0m02:11:28.532098 [debug] [Thread-4 (]: Using snowflake connection "model.snowchef.stg_recipe_ingredient"
+[0m02:11:28.532256 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m02:11:28.532471 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m02:11:28.532678 [debug] [Thread-3 (]: On model.snowchef.stg_recipe: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "model.snowchef.stg_recipe"} */
+create or replace   view USER_DB_PUMA.RAW.stg_recipe
+  
+   as (
+    
+
+SELECT DISTINCT
+    RECIPE_ID AS RECIPE_PK,
+    TITLE,
+    INSTRUCTIONS,
+    SERVINGS,
+    SOURCE_URL,
+    CUISINE,
+    DIET_FLAGS,
+    LOADED_AT
+FROM USER_DB_PUMA.RAW.recipe
+  );
+[0m02:11:28.532875 [debug] [Thread-4 (]: On model.snowchef.stg_recipe_ingredient: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "model.snowchef.stg_recipe_ingredient"} */
+create or replace   view USER_DB_PUMA.RAW.stg_recipe_ingredient
+  
+   as (
+    
+
+SELECT
+    RECIPE_ID AS RECIPE_PK,
+    INGREDIENT_ID AS INGREDIENT_PK,
+    QUANTITY,
+    UNIT,
+    RAW_TEXT
+FROM USER_DB_PUMA.RAW.recipe_ingredient
+  );
+[0m02:11:28.534637 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m02:11:28.534987 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m02:11:29.099684 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m02:11:29.109865 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m02:11:29.146218 [debug] [Thread-1 (]: Timing info for model.snowchef.stg_ingredient (execute): 02:11:28.505857 => 02:11:29.145902
+[0m02:11:29.148223 [debug] [Thread-3 (]: Timing info for model.snowchef.stg_recipe (execute): 02:11:28.525766 => 02:11:29.148049
+[0m02:11:29.149544 [debug] [Thread-1 (]: On model.snowchef.stg_ingredient: Close
+[0m02:11:29.151989 [debug] [Thread-3 (]: On model.snowchef.stg_recipe: Close
+[0m02:11:29.180594 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m02:11:29.187623 [debug] [Thread-4 (]: Timing info for model.snowchef.stg_recipe_ingredient (execute): 02:11:28.527459 => 02:11:29.187457
+[0m02:11:29.188585 [debug] [Thread-4 (]: On model.snowchef.stg_recipe_ingredient: Close
+[0m02:11:29.239729 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m02:11:29.243805 [debug] [Thread-2 (]: Timing info for model.snowchef.stg_pantry (execute): 02:11:28.523928 => 02:11:29.243663
+[0m02:11:29.244503 [debug] [Thread-2 (]: On model.snowchef.stg_pantry: Close
+[0m02:11:29.307539 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e5c70099-4a55-41b0-a85f-b91a5ae08cab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5f76bf50>]}
+[0m02:11:29.308746 [info ] [Thread-1 (]: 1 of 6 OK created sql view model RAW.stg_ingredient ............................ [[32mSUCCESS 1[0m in 0.82s]
+[0m02:11:29.310371 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e5c70099-4a55-41b0-a85f-b91a5ae08cab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5f769040>]}
+[0m02:11:29.311166 [debug] [Thread-3 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e5c70099-4a55-41b0-a85f-b91a5ae08cab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff859a7c80>]}
+[0m02:11:29.311647 [debug] [Thread-1 (]: Finished running node model.snowchef.stg_ingredient
+[0m02:11:29.312108 [info ] [Thread-4 (]: 4 of 6 OK created sql view model RAW.stg_recipe_ingredient ..................... [[32mSUCCESS 1[0m in 0.82s]
+[0m02:11:29.312622 [info ] [Thread-3 (]: 3 of 6 OK created sql view model RAW.stg_recipe ................................ [[32mSUCCESS 1[0m in 0.82s]
+[0m02:11:29.313666 [debug] [Thread-4 (]: Finished running node model.snowchef.stg_recipe_ingredient
+[0m02:11:29.314089 [debug] [Thread-3 (]: Finished running node model.snowchef.stg_recipe
+[0m02:11:29.379561 [debug] [Thread-2 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e5c70099-4a55-41b0-a85f-b91a5ae08cab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5f76be90>]}
+[0m02:11:29.380217 [info ] [Thread-2 (]: 2 of 6 OK created sql view model RAW.stg_pantry ................................ [[32mSUCCESS 1[0m in 0.89s]
+[0m02:11:29.381318 [debug] [Thread-2 (]: Finished running node model.snowchef.stg_pantry
+[0m02:11:29.410246 [debug] [Thread-1 (]: Began running node model.snowchef.mart_recipe_availability
+[0m02:11:29.413577 [debug] [Thread-4 (]: Began running node model.snowchef.mart_user_inventory
+[0m02:11:29.415371 [info ] [Thread-1 (]: 5 of 6 START sql table model RAW_ANALYTICS.mart_recipe_availability ............ [RUN]
+[0m02:11:29.417018 [info ] [Thread-4 (]: 6 of 6 START sql table model RAW_ANALYTICS.mart_user_inventory ................. [RUN]
+[0m02:11:29.418244 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly model.snowchef.stg_ingredient, now model.snowchef.mart_recipe_availability)
+[0m02:11:29.419171 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly model.snowchef.stg_recipe_ingredient, now model.snowchef.mart_user_inventory)
+[0m02:11:29.420248 [debug] [Thread-1 (]: Began compiling node model.snowchef.mart_recipe_availability
+[0m02:11:29.421723 [debug] [Thread-4 (]: Began compiling node model.snowchef.mart_user_inventory
+[0m02:11:29.446693 [debug] [Thread-1 (]: Writing injected SQL for node "model.snowchef.mart_recipe_availability"
+[0m02:11:29.449623 [debug] [Thread-4 (]: Writing injected SQL for node "model.snowchef.mart_user_inventory"
+[0m02:11:29.461524 [debug] [Thread-1 (]: Timing info for model.snowchef.mart_recipe_availability (compile): 02:11:29.422214 => 02:11:29.458430
+[0m02:11:29.464307 [debug] [Thread-4 (]: Timing info for model.snowchef.mart_user_inventory (compile): 02:11:29.436421 => 02:11:29.463181
+[0m02:11:29.465548 [debug] [Thread-1 (]: Began executing node model.snowchef.mart_recipe_availability
+[0m02:11:29.468142 [debug] [Thread-4 (]: Began executing node model.snowchef.mart_user_inventory
+[0m02:11:29.584338 [debug] [Thread-1 (]: Writing runtime sql for node "model.snowchef.mart_recipe_availability"
+[0m02:11:29.585211 [debug] [Thread-4 (]: Writing runtime sql for node "model.snowchef.mart_user_inventory"
+[0m02:11:29.593021 [debug] [Thread-1 (]: Using snowflake connection "model.snowchef.mart_recipe_availability"
+[0m02:11:29.593576 [debug] [Thread-4 (]: Using snowflake connection "model.snowchef.mart_user_inventory"
+[0m02:11:29.594781 [debug] [Thread-1 (]: On model.snowchef.mart_recipe_availability: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "model.snowchef.mart_recipe_availability"} */
+create or replace transient table USER_DB_PUMA.RAW_ANALYTICS.mart_recipe_availability
+         as
+        (
+
+WITH recipe_needs AS (
+    -- 1. How many ingredients each recipe requires
+    SELECT
+        recipe_pk,
+        COUNT(DISTINCT ingredient_pk) AS total_required_count
+    FROM USER_DB_PUMA.RAW.stg_recipe_ingredient
+    GROUP BY recipe_pk
+),
+
+users AS (
+    -- 2. All distinct users from pantry
+    SELECT DISTINCT
+        user_pk
+    FROM USER_DB_PUMA.RAW.stg_pantry
+),
+
+user_matches AS (
+    -- 3. For each (user, recipe), how many ingredients the user has
+    SELECT
+        p.user_pk,
+        ri.recipe_pk,
+        COUNT(DISTINCT ri.ingredient_pk) AS matched_count
+    FROM USER_DB_PUMA.RAW.stg_pantry p
+    JOIN USER_DB_PUMA.RAW.stg_recipe_ingredient ri
+      ON p.ingredient_pk = ri.ingredient_pk
+    GROUP BY
+        p.user_pk,
+        ri.recipe_pk
+),
+
+user_recipe_grid AS (
+    -- 4. All combinations user × recipe so we also see 0-match recipes
+    SELECT
+        u.user_pk,
+        rn.recipe_pk,
+        rn.total_required_count
+    FROM users u
+    CROSS JOIN recipe_needs rn
+)
+
+-- 5. Final mart for recommendations
+SELECT
+    g.user_pk,
+    g.recipe_pk,
+    r.title,
+    r.instructions,
+    r.cuisine,
+    r.servings,
+    r.diet_flags,
+    r.source_url,
+    g.total_required_count                           AS total_required_count,
+    COALESCE(um.matched_count, 0)                    AS matched_count,
+    g.total_required_count - COALESCE(um.matched_count, 0) AS missing_count,
+    COALESCE(um.matched_count, 0) * 100.0
+        / g.total_required_count                     AS match_percentage,
+    CASE
+        WHEN g.total_required_count - COALESCE(um.matched_count, 0) = 0
+        THEN TRUE
+        ELSE FALSE
+    END AS can_cook_now,
+    CASE
+        WHEN g.total_required_count - COALESCE(um.matched_count, 0) BETWEEN 1 AND 2
+        THEN TRUE
+        ELSE FALSE
+    END AS almost_can_cook
+FROM user_recipe_grid g
+JOIN USER_DB_PUMA.RAW.stg_recipe r
+  ON g.recipe_pk = r.recipe_pk
+LEFT JOIN user_matches um
+  ON um.user_pk = g.user_pk
+ AND um.recipe_pk = g.recipe_pk
+        );
+[0m02:11:29.595075 [debug] [Thread-4 (]: On model.snowchef.mart_user_inventory: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "model.snowchef.mart_user_inventory"} */
+create or replace transient table USER_DB_PUMA.RAW_ANALYTICS.mart_user_inventory
+         as
+        (
+
+SELECT
+    p.USER_PK,
+    p.LOADED_AT,
+    p.QUANTITY,
+    p.UNIT,
+    i.INGREDIENT_NAME
+FROM USER_DB_PUMA.RAW.stg_pantry p
+INNER JOIN USER_DB_PUMA.RAW.stg_ingredient i
+    ON p.INGREDIENT_PK = i.INGREDIENT_PK
+        );
+[0m02:11:29.595415 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m02:11:29.595645 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m02:11:30.922013 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m02:11:30.955313 [debug] [Thread-4 (]: Timing info for model.snowchef.mart_user_inventory (execute): 02:11:29.480541 => 02:11:30.953467
+[0m02:11:30.957028 [debug] [Thread-4 (]: On model.snowchef.mart_user_inventory: Close
+[0m02:11:31.490278 [debug] [Thread-4 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e5c70099-4a55-41b0-a85f-b91a5ae08cab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5f76bad0>]}
+[0m02:11:31.492246 [info ] [Thread-4 (]: 6 of 6 OK created sql table model RAW_ANALYTICS.mart_user_inventory ............ [[32mSUCCESS 1[0m in 2.07s]
+[0m02:11:31.495937 [debug] [Thread-4 (]: Finished running node model.snowchef.mart_user_inventory
+[0m02:11:32.355546 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 3.0 seconds
+[0m02:11:32.366313 [debug] [Thread-1 (]: Timing info for model.snowchef.mart_recipe_availability (execute): 02:11:29.468899 => 02:11:32.365946
+[0m02:11:32.367054 [debug] [Thread-1 (]: On model.snowchef.mart_recipe_availability: Close
+[0m02:11:32.488216 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'e5c70099-4a55-41b0-a85f-b91a5ae08cab', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff5f76bd40>]}
+[0m02:11:32.489369 [info ] [Thread-1 (]: 5 of 6 OK created sql table model RAW_ANALYTICS.mart_recipe_availability ....... [[32mSUCCESS 1[0m in 3.07s]
+[0m02:11:32.490554 [debug] [Thread-1 (]: Finished running node model.snowchef.mart_recipe_availability
+[0m02:11:32.496172 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m02:11:32.496518 [debug] [MainThread]: Connection 'model.snowchef.stg_recipe' was properly closed.
+[0m02:11:32.496745 [debug] [MainThread]: Connection 'model.snowchef.stg_pantry' was properly closed.
+[0m02:11:32.496941 [debug] [MainThread]: Connection 'model.snowchef.mart_recipe_availability' was properly closed.
+[0m02:11:32.497127 [debug] [MainThread]: Connection 'model.snowchef.mart_user_inventory' was properly closed.
+[0m02:11:32.497628 [info ] [MainThread]: 
+[0m02:11:32.500352 [info ] [MainThread]: Finished running 4 view models, 2 table models in 0 hours 0 minutes and 5.88 seconds (5.88s).
+[0m02:11:32.501756 [debug] [MainThread]: Command end result
+[0m02:11:32.520631 [info ] [MainThread]: 
+[0m02:11:32.521234 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m02:11:32.521465 [info ] [MainThread]: 
+[0m02:11:32.521904 [info ] [MainThread]: Done. PASS=6 WARN=0 ERROR=0 SKIP=0 TOTAL=6
+[0m02:11:32.533687 [debug] [MainThread]: Resource report: {"command_name": "run", "command_success": true, "command_wall_clock_time": 8.032316, "process_user_time": 4.587616, "process_kernel_time": 2.062388, "process_mem_max_rss": "219400", "process_out_blocks": "2783", "process_in_blocks": "0"}
+[0m02:11:32.534383 [debug] [MainThread]: Command `dbt run` succeeded at 02:11:32.534306 after 8.03 seconds
+[0m02:11:32.534944 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa656e420>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff865088c0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffaad38e30>]}
+[0m02:11:32.535162 [debug] [MainThread]: Flushing usage events
+[0m02:11:37.225293 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff845b5a00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff84652060>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff84a62ea0>]}
+
+
+============================== 02:11:37.228997 | bb8442b2-c9a4-401e-ac69-e91acac68a0e ==============================
+[0m02:11:37.228997 [info ] [MainThread]: Running with dbt=1.7.9
+[0m02:11:37.231629 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'write_json': 'True', 'log_cache_events': 'False', 'partial_parse': 'True', 'cache_selected_only': 'False', 'warn_error': 'None', 'debug': 'False', 'version_check': 'True', 'log_path': '/opt/airflow/dbt/logs', 'profiles_dir': '/opt/airflow/dbt', 'fail_fast': 'False', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'introspect': 'True', 'static_parser': 'True', 'invocation_command': 'dbt test --profiles-dir /opt/airflow/dbt --project-dir /opt/airflow/dbt', 'target_path': 'None', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'send_anonymous_usage_stats': 'True'}
+[0m02:11:37.823147 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'bb8442b2-c9a4-401e-ac69-e91acac68a0e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff6a918830>]}
+[0m02:11:37.862715 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'bb8442b2-c9a4-401e-ac69-e91acac68a0e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff68b5dd30>]}
+[0m02:11:37.863237 [info ] [MainThread]: Registered adapter: snowflake=1.7.2
+[0m02:11:37.872535 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m02:11:37.894212 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m02:11:37.894662 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m02:11:37.895306 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.snowchef.raw
+[0m02:11:37.898891 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'bb8442b2-c9a4-401e-ac69-e91acac68a0e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff684fa8d0>]}
+[0m02:11:37.908111 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'bb8442b2-c9a4-401e-ac69-e91acac68a0e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff6849ac60>]}
+[0m02:11:37.908397 [info ] [MainThread]: Found 6 models, 1 snapshot, 8 tests, 4 sources, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+[0m02:11:37.908837 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'bb8442b2-c9a4-401e-ac69-e91acac68a0e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff69d43950>]}
+[0m02:11:37.910137 [info ] [MainThread]: 
+[0m02:11:37.910761 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m02:11:37.911823 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA_HISTORY'
+[0m02:11:37.917932 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA_RAW_ANALYTICS'
+[0m02:11:37.922001 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_HISTORY"
+[0m02:11:37.923283 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_RAW_ANALYTICS"
+[0m02:11:37.924071 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA_RAW'
+[0m02:11:37.924311 [debug] [ThreadPool]: On list_USER_DB_PUMA_HISTORY: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_HISTORY"} */
+show terse objects in USER_DB_PUMA.HISTORY limit 10000
+[0m02:11:37.924580 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW_ANALYTICS: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_RAW_ANALYTICS"} */
+show terse objects in USER_DB_PUMA.RAW_ANALYTICS limit 10000
+[0m02:11:37.925694 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_RAW"
+[0m02:11:37.925916 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:11:37.926129 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:11:37.926322 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_RAW"} */
+show terse objects in USER_DB_PUMA.RAW limit 10000
+[0m02:11:37.928956 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:11:38.397651 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 0.0 seconds
+[0m02:11:38.401854 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW_ANALYTICS: Close
+[0m02:11:38.406829 [debug] [ThreadPool]: SQL status: SUCCESS 20 in 0.0 seconds
+[0m02:11:38.408069 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW: Close
+[0m02:11:38.550720 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m02:11:38.574042 [debug] [ThreadPool]: On list_USER_DB_PUMA_HISTORY: Close
+[0m02:11:38.718517 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'bb8442b2-c9a4-401e-ac69-e91acac68a0e', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff685994c0>]}
+[0m02:11:38.720701 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m02:11:38.721815 [info ] [MainThread]: 
+[0m02:11:38.750956 [debug] [Thread-1 (]: Began running node test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9
+[0m02:11:38.751339 [debug] [Thread-2 (]: Began running node test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950
+[0m02:11:38.751610 [debug] [Thread-3 (]: Began running node test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d
+[0m02:11:38.751823 [debug] [Thread-4 (]: Began running node test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105
+[0m02:11:38.752157 [info ] [Thread-1 (]: 1 of 8 START test not_null_stg_ingredient_INGREDIENT_NAME ...................... [RUN]
+[0m02:11:38.753153 [info ] [Thread-2 (]: 2 of 8 START test not_null_stg_ingredient_INGREDIENT_PK ........................ [RUN]
+[0m02:11:38.753635 [info ] [Thread-3 (]: 3 of 8 START test not_null_stg_recipe_RECIPE_PK ................................ [RUN]
+[0m02:11:38.754030 [info ] [Thread-4 (]: 4 of 8 START test not_null_stg_recipe_ingredient_INGREDIENT_PK ................. [RUN]
+[0m02:11:38.754881 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA_HISTORY, now test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9)
+[0m02:11:38.755277 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA_RAW, now test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950)
+[0m02:11:38.755687 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA_RAW_ANALYTICS, now test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d)
+[0m02:11:38.756339 [debug] [Thread-4 (]: Acquiring new snowflake connection 'test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105'
+[0m02:11:38.756616 [debug] [Thread-1 (]: Began compiling node test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9
+[0m02:11:38.756859 [debug] [Thread-2 (]: Began compiling node test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950
+[0m02:11:38.757091 [debug] [Thread-3 (]: Began compiling node test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d
+[0m02:11:38.757316 [debug] [Thread-4 (]: Began compiling node test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105
+[0m02:11:38.776290 [debug] [Thread-2 (]: Writing injected SQL for node "test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950"
+[0m02:11:38.777365 [debug] [Thread-1 (]: Writing injected SQL for node "test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9"
+[0m02:11:38.779859 [debug] [Thread-3 (]: Writing injected SQL for node "test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d"
+[0m02:11:38.784171 [debug] [Thread-4 (]: Writing injected SQL for node "test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105"
+[0m02:11:38.787191 [debug] [Thread-2 (]: Timing info for test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950 (compile): 02:11:38.770686 => 02:11:38.787013
+[0m02:11:38.787451 [debug] [Thread-3 (]: Timing info for test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d (compile): 02:11:38.777615 => 02:11:38.787315
+[0m02:11:38.787729 [debug] [Thread-2 (]: Began executing node test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950
+[0m02:11:38.787944 [debug] [Thread-1 (]: Timing info for test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9 (compile): 02:11:38.757571 => 02:11:38.787840
+[0m02:11:38.788147 [debug] [Thread-4 (]: Timing info for test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105 (compile): 02:11:38.780082 => 02:11:38.788046
+[0m02:11:38.789413 [debug] [Thread-3 (]: Began executing node test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d
+[0m02:11:38.800315 [debug] [Thread-2 (]: Writing runtime sql for node "test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950"
+[0m02:11:38.800636 [debug] [Thread-1 (]: Began executing node test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9
+[0m02:11:38.800866 [debug] [Thread-4 (]: Began executing node test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105
+[0m02:11:38.802189 [debug] [Thread-3 (]: Writing runtime sql for node "test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d"
+[0m02:11:38.803616 [debug] [Thread-1 (]: Writing runtime sql for node "test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9"
+[0m02:11:38.804891 [debug] [Thread-4 (]: Writing runtime sql for node "test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105"
+[0m02:11:38.805415 [debug] [Thread-2 (]: Using snowflake connection "test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950"
+[0m02:11:38.805893 [debug] [Thread-2 (]: On test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select INGREDIENT_PK
+from USER_DB_PUMA.RAW.stg_ingredient
+where INGREDIENT_PK is null
+
+
+
+      
+    ) dbt_internal_test
+[0m02:11:38.806167 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m02:11:38.806530 [debug] [Thread-1 (]: Using snowflake connection "test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9"
+[0m02:11:38.806836 [debug] [Thread-3 (]: Using snowflake connection "test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d"
+[0m02:11:38.808387 [debug] [Thread-4 (]: Using snowflake connection "test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105"
+[0m02:11:38.808826 [debug] [Thread-1 (]: On test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select INGREDIENT_NAME
+from USER_DB_PUMA.RAW.stg_ingredient
+where INGREDIENT_NAME is null
+
+
+
+      
+    ) dbt_internal_test
+[0m02:11:38.809306 [debug] [Thread-3 (]: On test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select RECIPE_PK
+from USER_DB_PUMA.RAW.stg_recipe
+where RECIPE_PK is null
+
+
+
+      
+    ) dbt_internal_test
+[0m02:11:38.809569 [debug] [Thread-4 (]: On test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select INGREDIENT_PK
+from USER_DB_PUMA.RAW.stg_recipe_ingredient
+where INGREDIENT_PK is null
+
+
+
+      
+    ) dbt_internal_test
+[0m02:11:38.809887 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m02:11:38.810082 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m02:11:38.810261 [debug] [Thread-4 (]: Opening a new connection, currently in state init
+[0m02:11:39.256852 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.0 seconds
+[0m02:11:39.268325 [debug] [Thread-2 (]: Timing info for test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950 (execute): 02:11:38.789576 => 02:11:39.268006
+[0m02:11:39.268714 [debug] [Thread-2 (]: On test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950: Close
+[0m02:11:39.285109 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.0 seconds
+[0m02:11:39.285758 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 0.0 seconds
+[0m02:11:39.287715 [debug] [Thread-4 (]: Timing info for test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105 (execute): 02:11:38.803786 => 02:11:39.287524
+[0m02:11:39.289409 [debug] [Thread-3 (]: Timing info for test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d (execute): 02:11:38.801019 => 02:11:39.289246
+[0m02:11:39.289757 [debug] [Thread-4 (]: On test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105: Close
+[0m02:11:39.290082 [debug] [Thread-3 (]: On test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d: Close
+[0m02:11:39.404461 [info ] [Thread-3 (]: 3 of 8 PASS not_null_stg_recipe_RECIPE_PK ...................................... [[32mPASS[0m in 0.65s]
+[0m02:11:39.406151 [debug] [Thread-3 (]: Finished running node test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d
+[0m02:11:39.406646 [debug] [Thread-3 (]: Began running node test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576
+[0m02:11:39.407199 [info ] [Thread-3 (]: 5 of 8 START test not_null_stg_recipe_ingredient_QUANTITY ...................... [RUN]
+[0m02:11:39.408068 [info ] [Thread-2 (]: 2 of 8 PASS not_null_stg_ingredient_INGREDIENT_PK .............................. [[32mPASS[0m in 0.65s]
+[0m02:11:39.408662 [debug] [Thread-3 (]: Re-using an available connection from the pool (formerly test.snowchef.not_null_stg_recipe_RECIPE_PK.b8fb10bb6d, now test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576)
+[0m02:11:39.409114 [debug] [Thread-2 (]: Finished running node test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950
+[0m02:11:39.409479 [debug] [Thread-3 (]: Began compiling node test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576
+[0m02:11:39.409863 [debug] [Thread-2 (]: Began running node test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721
+[0m02:11:39.413805 [debug] [Thread-3 (]: Writing injected SQL for node "test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576"
+[0m02:11:39.414054 [info ] [Thread-2 (]: 6 of 8 START test not_null_stg_recipe_ingredient_RECIPE_PK ..................... [RUN]
+[0m02:11:39.414858 [debug] [Thread-2 (]: Re-using an available connection from the pool (formerly test.snowchef.not_null_stg_ingredient_INGREDIENT_PK.1a9defc950, now test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721)
+[0m02:11:39.415246 [debug] [Thread-2 (]: Began compiling node test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721
+[0m02:11:39.418488 [debug] [Thread-2 (]: Writing injected SQL for node "test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721"
+[0m02:11:39.418893 [debug] [Thread-3 (]: Timing info for test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576 (compile): 02:11:39.410098 => 02:11:39.418757
+[0m02:11:39.419431 [debug] [Thread-3 (]: Began executing node test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576
+[0m02:11:39.421175 [debug] [Thread-3 (]: Writing runtime sql for node "test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576"
+[0m02:11:39.421528 [debug] [Thread-2 (]: Timing info for test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721 (compile): 02:11:39.415492 => 02:11:39.421408
+[0m02:11:39.422991 [debug] [Thread-2 (]: Began executing node test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721
+[0m02:11:39.425570 [debug] [Thread-2 (]: Writing runtime sql for node "test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721"
+[0m02:11:39.426219 [debug] [Thread-3 (]: Using snowflake connection "test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576"
+[0m02:11:39.426481 [debug] [Thread-3 (]: On test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select QUANTITY
+from USER_DB_PUMA.RAW.stg_recipe_ingredient
+where QUANTITY is null
+
+
+
+      
+    ) dbt_internal_test
+[0m02:11:39.426837 [debug] [Thread-3 (]: Opening a new connection, currently in state closed
+[0m02:11:39.427255 [debug] [Thread-2 (]: Using snowflake connection "test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721"
+[0m02:11:39.430244 [debug] [Thread-2 (]: On test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+
+
+select RECIPE_PK
+from USER_DB_PUMA.RAW.stg_recipe_ingredient
+where RECIPE_PK is null
+
+
+
+      
+    ) dbt_internal_test
+[0m02:11:39.430848 [debug] [Thread-2 (]: Opening a new connection, currently in state closed
+[0m02:11:39.443500 [info ] [Thread-4 (]: 4 of 8 PASS not_null_stg_recipe_ingredient_INGREDIENT_PK ....................... [[32mPASS[0m in 0.69s]
+[0m02:11:39.444328 [debug] [Thread-4 (]: Finished running node test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105
+[0m02:11:39.444979 [debug] [Thread-4 (]: Began running node test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918
+[0m02:11:39.445430 [info ] [Thread-4 (]: 7 of 8 START test unique_stg_ingredient_INGREDIENT_PK .......................... [RUN]
+[0m02:11:39.446494 [debug] [Thread-4 (]: Re-using an available connection from the pool (formerly test.snowchef.not_null_stg_recipe_ingredient_INGREDIENT_PK.26be161105, now test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918)
+[0m02:11:39.446748 [debug] [Thread-4 (]: Began compiling node test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918
+[0m02:11:39.452020 [debug] [Thread-4 (]: Writing injected SQL for node "test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918"
+[0m02:11:39.452766 [debug] [Thread-4 (]: Timing info for test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918 (compile): 02:11:39.446906 => 02:11:39.452658
+[0m02:11:39.452980 [debug] [Thread-4 (]: Began executing node test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918
+[0m02:11:39.454563 [debug] [Thread-4 (]: Writing runtime sql for node "test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918"
+[0m02:11:39.455396 [debug] [Thread-4 (]: Using snowflake connection "test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918"
+[0m02:11:39.455633 [debug] [Thread-4 (]: On test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    INGREDIENT_PK as unique_field,
+    count(*) as n_records
+
+from USER_DB_PUMA.RAW.stg_ingredient
+where INGREDIENT_PK is not null
+group by INGREDIENT_PK
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m02:11:39.455845 [debug] [Thread-4 (]: Opening a new connection, currently in state closed
+[0m02:11:39.482142 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m02:11:39.484865 [debug] [Thread-1 (]: Timing info for test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9 (execute): 02:11:38.802545 => 02:11:39.484679
+[0m02:11:39.485144 [debug] [Thread-1 (]: On test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9: Close
+[0m02:11:39.610531 [info ] [Thread-1 (]: 1 of 8 PASS not_null_stg_ingredient_INGREDIENT_NAME ............................ [[32mPASS[0m in 0.86s]
+[0m02:11:39.611483 [debug] [Thread-1 (]: Finished running node test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9
+[0m02:11:39.611976 [debug] [Thread-1 (]: Began running node test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f
+[0m02:11:39.612364 [info ] [Thread-1 (]: 8 of 8 START test unique_stg_recipe_RECIPE_PK .................................. [RUN]
+[0m02:11:39.613066 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly test.snowchef.not_null_stg_ingredient_INGREDIENT_NAME.b7f4b239d9, now test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f)
+[0m02:11:39.613340 [debug] [Thread-1 (]: Began compiling node test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f
+[0m02:11:39.616673 [debug] [Thread-1 (]: Writing injected SQL for node "test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f"
+[0m02:11:39.617483 [debug] [Thread-1 (]: Timing info for test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f (compile): 02:11:39.613478 => 02:11:39.617343
+[0m02:11:39.617696 [debug] [Thread-1 (]: Began executing node test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f
+[0m02:11:39.619297 [debug] [Thread-1 (]: Writing runtime sql for node "test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f"
+[0m02:11:39.620062 [debug] [Thread-1 (]: Using snowflake connection "test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f"
+[0m02:11:39.625066 [debug] [Thread-1 (]: On test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f"} */
+select
+      count(*) as failures,
+      count(*) != 0 as should_warn,
+      count(*) != 0 as should_error
+    from (
+      
+    
+    
+
+select
+    RECIPE_PK as unique_field,
+    count(*) as n_records
+
+from USER_DB_PUMA.RAW.stg_recipe
+where RECIPE_PK is not null
+group by RECIPE_PK
+having count(*) > 1
+
+
+
+      
+    ) dbt_internal_test
+[0m02:11:39.625336 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m02:11:39.882803 [debug] [Thread-4 (]: SQL status: SUCCESS 1 in 0.0 seconds
+[0m02:11:39.885899 [debug] [Thread-4 (]: Timing info for test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918 (execute): 02:11:39.453121 => 02:11:39.885637
+[0m02:11:39.886500 [debug] [Thread-4 (]: On test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918: Close
+[0m02:11:39.917238 [debug] [Thread-2 (]: SQL status: SUCCESS 1 in 0.0 seconds
+[0m02:11:39.918859 [debug] [Thread-2 (]: Timing info for test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721 (execute): 02:11:39.423217 => 02:11:39.918705
+[0m02:11:39.919143 [debug] [Thread-2 (]: On test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721: Close
+[0m02:11:39.928242 [debug] [Thread-3 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m02:11:39.930604 [debug] [Thread-3 (]: Timing info for test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576 (execute): 02:11:39.419632 => 02:11:39.930421
+[0m02:11:39.930944 [debug] [Thread-3 (]: On test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576: Close
+[0m02:11:40.039058 [info ] [Thread-4 (]: 7 of 8 PASS unique_stg_ingredient_INGREDIENT_PK ................................ [[32mPASS[0m in 0.59s]
+[0m02:11:40.040010 [debug] [Thread-4 (]: Finished running node test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918
+[0m02:11:40.092726 [info ] [Thread-2 (]: 6 of 8 PASS not_null_stg_recipe_ingredient_RECIPE_PK ........................... [[32mPASS[0m in 0.68s]
+[0m02:11:40.093385 [debug] [Thread-2 (]: Finished running node test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721
+[0m02:11:40.095526 [info ] [Thread-3 (]: 5 of 8 PASS not_null_stg_recipe_ingredient_QUANTITY ............................ [[32mPASS[0m in 0.69s]
+[0m02:11:40.096030 [debug] [Thread-3 (]: Finished running node test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576
+[0m02:11:40.191100 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m02:11:40.193858 [debug] [Thread-1 (]: Timing info for test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f (execute): 02:11:39.617831 => 02:11:40.193618
+[0m02:11:40.194303 [debug] [Thread-1 (]: On test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f: Close
+[0m02:11:40.321123 [info ] [Thread-1 (]: 8 of 8 PASS unique_stg_recipe_RECIPE_PK ........................................ [[32mPASS[0m in 0.71s]
+[0m02:11:40.324973 [debug] [Thread-1 (]: Finished running node test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f
+[0m02:11:40.329120 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m02:11:40.329468 [debug] [MainThread]: Connection 'test.snowchef.unique_stg_recipe_RECIPE_PK.64ca0f9e3f' was properly closed.
+[0m02:11:40.329980 [debug] [MainThread]: Connection 'test.snowchef.not_null_stg_recipe_ingredient_QUANTITY.188c67a576' was properly closed.
+[0m02:11:40.330246 [debug] [MainThread]: Connection 'test.snowchef.not_null_stg_recipe_ingredient_RECIPE_PK.83ad079721' was properly closed.
+[0m02:11:40.330676 [debug] [MainThread]: Connection 'test.snowchef.unique_stg_ingredient_INGREDIENT_PK.b13c9f5918' was properly closed.
+[0m02:11:40.331044 [info ] [MainThread]: 
+[0m02:11:40.331571 [info ] [MainThread]: Finished running 8 tests in 0 hours 0 minutes and 2.42 seconds (2.42s).
+[0m02:11:40.332941 [debug] [MainThread]: Command end result
+[0m02:11:40.345071 [info ] [MainThread]: 
+[0m02:11:40.345843 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m02:11:40.346183 [info ] [MainThread]: 
+[0m02:11:40.346678 [info ] [MainThread]: Done. PASS=8 WARN=0 ERROR=0 SKIP=0 TOTAL=8
+[0m02:11:40.349148 [debug] [MainThread]: Resource report: {"command_name": "test", "command_success": true, "command_wall_clock_time": 3.1422176, "process_user_time": 2.968553, "process_kernel_time": 0.537877, "process_mem_max_rss": "216856", "process_out_blocks": "1895", "process_in_blocks": "0"}
+[0m02:11:40.349958 [debug] [MainThread]: Command `dbt test` succeeded at 02:11:40.349862 after 3.14 seconds
+[0m02:11:40.350689 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff845b7740>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff84652060>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff683c7530>]}
+[0m02:11:40.351243 [debug] [MainThread]: Flushing usage events
+[0m02:11:44.321035 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffabc229f0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffabe76000>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffacb62180>]}
+
+
+============================== 02:11:44.327932 | eeb60539-cd5f-493c-9739-2f41636caf63 ==============================
+[0m02:11:44.327932 [info ] [MainThread]: Running with dbt=1.7.9
+[0m02:11:44.331524 [debug] [MainThread]: running dbt with arguments {'printer_width': '80', 'indirect_selection': 'eager', 'log_cache_events': 'False', 'write_json': 'True', 'partial_parse': 'True', 'cache_selected_only': 'False', 'profiles_dir': '/opt/airflow/dbt', 'debug': 'False', 'fail_fast': 'False', 'log_path': '/opt/airflow/dbt/logs', 'version_check': 'True', 'warn_error': 'None', 'use_colors': 'True', 'use_experimental_parser': 'False', 'no_print': 'None', 'quiet': 'False', 'log_format': 'default', 'static_parser': 'True', 'warn_error_options': 'WarnErrorOptions(include=[], exclude=[])', 'invocation_command': 'dbt snapshot --profiles-dir /opt/airflow/dbt --project-dir /opt/airflow/dbt', 'target_path': 'None', 'introspect': 'True', 'send_anonymous_usage_stats': 'True'}
+[0m02:11:44.857316 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'project_id', 'label': 'eeb60539-cd5f-493c-9739-2f41636caf63', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8bca8d70>]}
+[0m02:11:44.907158 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'adapter_info', 'label': 'eeb60539-cd5f-493c-9739-2f41636caf63', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff91843a40>]}
+[0m02:11:44.908003 [info ] [MainThread]: Registered adapter: snowflake=1.7.2
+[0m02:11:44.918281 [debug] [MainThread]: checksum: 6ff0d83c3b46f350064523b4e08d9241403ad71d606ba49c4e670afba3668b39, vars: {}, profile: , target: , version: 1.7.9
+[0m02:11:44.956730 [debug] [MainThread]: Partial parsing enabled: 0 files deleted, 0 files added, 0 files changed.
+[0m02:11:44.957297 [debug] [MainThread]: Partial parsing enabled, no changes found, skipping parsing
+[0m02:11:44.958137 [warn ] [MainThread]: [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+There are 1 unused configuration paths:
+- models.snowchef.raw
+[0m02:11:44.967064 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'load_project', 'label': 'eeb60539-cd5f-493c-9739-2f41636caf63', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8bbf1640>]}
+[0m02:11:44.977930 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'resource_counts', 'label': 'eeb60539-cd5f-493c-9739-2f41636caf63', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8bc4b4d0>]}
+[0m02:11:44.978226 [info ] [MainThread]: Found 6 models, 1 snapshot, 8 tests, 4 sources, 0 exposures, 0 metrics, 430 macros, 0 groups, 0 semantic models
+[0m02:11:44.978637 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'eeb60539-cd5f-493c-9739-2f41636caf63', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff921013d0>]}
+[0m02:11:44.979871 [info ] [MainThread]: 
+[0m02:11:44.980469 [debug] [MainThread]: Acquiring new snowflake connection 'master'
+[0m02:11:44.981371 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA'
+[0m02:11:44.989247 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA"
+[0m02:11:44.992552 [debug] [ThreadPool]: On list_USER_DB_PUMA: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA"} */
+show terse schemas in database USER_DB_PUMA
+    limit 10000
+[0m02:11:44.992790 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:11:45.483460 [debug] [ThreadPool]: SQL status: SUCCESS 10 in 0.0 seconds
+[0m02:11:45.487550 [debug] [ThreadPool]: On list_USER_DB_PUMA: Close
+[0m02:11:45.621777 [debug] [ThreadPool]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA, now list_USER_DB_PUMA_HISTORY)
+[0m02:11:45.623138 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA_RAW_ANALYTICS'
+[0m02:11:45.633992 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_HISTORY"
+[0m02:11:45.635618 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_RAW_ANALYTICS"
+[0m02:11:45.636136 [debug] [ThreadPool]: Acquiring new snowflake connection 'list_USER_DB_PUMA_RAW'
+[0m02:11:45.636489 [debug] [ThreadPool]: On list_USER_DB_PUMA_HISTORY: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_HISTORY"} */
+show terse objects in USER_DB_PUMA.HISTORY limit 10000
+[0m02:11:45.636773 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW_ANALYTICS: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_RAW_ANALYTICS"} */
+show terse objects in USER_DB_PUMA.RAW_ANALYTICS limit 10000
+[0m02:11:45.638254 [debug] [ThreadPool]: Using snowflake connection "list_USER_DB_PUMA_RAW"
+[0m02:11:45.638592 [debug] [ThreadPool]: Opening a new connection, currently in state closed
+[0m02:11:45.638824 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:11:45.639034 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "connection_name": "list_USER_DB_PUMA_RAW"} */
+show terse objects in USER_DB_PUMA.RAW limit 10000
+[0m02:11:45.641340 [debug] [ThreadPool]: Opening a new connection, currently in state init
+[0m02:11:46.062407 [debug] [ThreadPool]: SQL status: SUCCESS 2 in 0.0 seconds
+[0m02:11:46.067509 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW_ANALYTICS: Close
+[0m02:11:46.073206 [debug] [ThreadPool]: SQL status: SUCCESS 20 in 0.0 seconds
+[0m02:11:46.075664 [debug] [ThreadPool]: On list_USER_DB_PUMA_RAW: Close
+[0m02:11:46.131027 [debug] [ThreadPool]: SQL status: SUCCESS 1 in 0.0 seconds
+[0m02:11:46.133903 [debug] [ThreadPool]: On list_USER_DB_PUMA_HISTORY: Close
+[0m02:11:46.279287 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'runnable_timing', 'label': 'eeb60539-cd5f-493c-9739-2f41636caf63', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff8bb79760>]}
+[0m02:11:46.281501 [info ] [MainThread]: Concurrency: 4 threads (target='dev')
+[0m02:11:46.285538 [info ] [MainThread]: 
+[0m02:11:46.310829 [debug] [Thread-1 (]: Began running node snapshot.snowchef.recipe_snapshot
+[0m02:11:46.311882 [info ] [Thread-1 (]: 1 of 1 START snapshot HISTORY.recipe_snapshot .................................. [RUN]
+[0m02:11:46.313081 [debug] [Thread-1 (]: Re-using an available connection from the pool (formerly list_USER_DB_PUMA_HISTORY, now snapshot.snowchef.recipe_snapshot)
+[0m02:11:46.313651 [debug] [Thread-1 (]: Began compiling node snapshot.snowchef.recipe_snapshot
+[0m02:11:46.324064 [debug] [Thread-1 (]: Timing info for snapshot.snowchef.recipe_snapshot (compile): 02:11:46.314053 => 02:11:46.323826
+[0m02:11:46.324402 [debug] [Thread-1 (]: Began executing node snapshot.snowchef.recipe_snapshot
+[0m02:11:46.358667 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m02:11:46.358963 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+select * from (
+        select TITLE, INSTRUCTIONS, SERVINGS, SOURCE_URL, CUISINE, DIET_FLAGS from (
+                
+
+
+
+SELECT *
+FROM USER_DB_PUMA.RAW.stg_recipe 
+
+            ) subq
+    ) as __dbt_sbq
+    where false
+    limit 0
+[0m02:11:46.359191 [debug] [Thread-1 (]: Opening a new connection, currently in state closed
+[0m02:11:46.823018 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 0.0 seconds
+[0m02:11:46.846030 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m02:11:46.847353 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+describe table "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT"
+[0m02:11:46.979061 [debug] [Thread-1 (]: SQL status: SUCCESS 12 in 0.0 seconds
+[0m02:11:46.985360 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m02:11:46.985687 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+describe table "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT"
+[0m02:11:47.092132 [debug] [Thread-1 (]: SQL status: SUCCESS 12 in 0.0 seconds
+[0m02:11:47.116911 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m02:11:47.117397 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+create or replace temporary table "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT__dbt_tmp"
+         as
+        (with snapshot_query as (
+
+        
+
+
+
+SELECT *
+FROM USER_DB_PUMA.RAW.stg_recipe 
+
+
+    ),
+
+    snapshotted_data as (
+
+        select *,
+            RECIPE_PK as dbt_unique_key
+
+        from "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT"
+        where dbt_valid_to is null
+
+    ),
+
+    insertions_source_data as (
+
+        select
+            *,
+            RECIPE_PK as dbt_unique_key,
+            to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as dbt_updated_at,
+            to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as dbt_valid_from,
+            nullif(to_timestamp_ntz(convert_timezone('UTC', current_timestamp())), to_timestamp_ntz(convert_timezone('UTC', current_timestamp()))) as dbt_valid_to,
+            md5(coalesce(cast(RECIPE_PK as varchar ), '')
+         || '|' || coalesce(cast(to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as varchar ), '')
+        ) as dbt_scd_id
+
+        from snapshot_query
+    ),
+
+    updates_source_data as (
+
+        select
+            *,
+            RECIPE_PK as dbt_unique_key,
+            to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as dbt_updated_at,
+            to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as dbt_valid_from,
+            to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as dbt_valid_to
+
+        from snapshot_query
+    ),
+
+    deletes_source_data as (
+
+        select
+            *,
+            RECIPE_PK as dbt_unique_key
+        from snapshot_query
+    ),
+    
+
+    insertions as (
+
+        select
+            'insert' as dbt_change_type,
+            source_data.*
+
+        from insertions_source_data as source_data
+        left outer join snapshotted_data on snapshotted_data.dbt_unique_key = source_data.dbt_unique_key
+        where snapshotted_data.dbt_unique_key is null
+           or (
+                snapshotted_data.dbt_unique_key is not null
+            and (
+                (snapshotted_data."TITLE" != source_data."TITLE"
+        or
+        (
+            ((snapshotted_data."TITLE" is null) and not (source_data."TITLE" is null))
+            or
+            ((not snapshotted_data."TITLE" is null) and (source_data."TITLE" is null))
+        ) or snapshotted_data."INSTRUCTIONS" != source_data."INSTRUCTIONS"
+        or
+        (
+            ((snapshotted_data."INSTRUCTIONS" is null) and not (source_data."INSTRUCTIONS" is null))
+            or
+            ((not snapshotted_data."INSTRUCTIONS" is null) and (source_data."INSTRUCTIONS" is null))
+        ) or snapshotted_data."SERVINGS" != source_data."SERVINGS"
+        or
+        (
+            ((snapshotted_data."SERVINGS" is null) and not (source_data."SERVINGS" is null))
+            or
+            ((not snapshotted_data."SERVINGS" is null) and (source_data."SERVINGS" is null))
+        ) or snapshotted_data."SOURCE_URL" != source_data."SOURCE_URL"
+        or
+        (
+            ((snapshotted_data."SOURCE_URL" is null) and not (source_data."SOURCE_URL" is null))
+            or
+            ((not snapshotted_data."SOURCE_URL" is null) and (source_data."SOURCE_URL" is null))
+        ) or snapshotted_data."CUISINE" != source_data."CUISINE"
+        or
+        (
+            ((snapshotted_data."CUISINE" is null) and not (source_data."CUISINE" is null))
+            or
+            ((not snapshotted_data."CUISINE" is null) and (source_data."CUISINE" is null))
+        ) or snapshotted_data."DIET_FLAGS" != source_data."DIET_FLAGS"
+        or
+        (
+            ((snapshotted_data."DIET_FLAGS" is null) and not (source_data."DIET_FLAGS" is null))
+            or
+            ((not snapshotted_data."DIET_FLAGS" is null) and (source_data."DIET_FLAGS" is null))
+        ))
+            )
+        )
+
+    ),
+
+    updates as (
+
+        select
+            'update' as dbt_change_type,
+            source_data.*,
+            snapshotted_data.dbt_scd_id
+
+        from updates_source_data as source_data
+        join snapshotted_data on snapshotted_data.dbt_unique_key = source_data.dbt_unique_key
+        where (
+            (snapshotted_data."TITLE" != source_data."TITLE"
+        or
+        (
+            ((snapshotted_data."TITLE" is null) and not (source_data."TITLE" is null))
+            or
+            ((not snapshotted_data."TITLE" is null) and (source_data."TITLE" is null))
+        ) or snapshotted_data."INSTRUCTIONS" != source_data."INSTRUCTIONS"
+        or
+        (
+            ((snapshotted_data."INSTRUCTIONS" is null) and not (source_data."INSTRUCTIONS" is null))
+            or
+            ((not snapshotted_data."INSTRUCTIONS" is null) and (source_data."INSTRUCTIONS" is null))
+        ) or snapshotted_data."SERVINGS" != source_data."SERVINGS"
+        or
+        (
+            ((snapshotted_data."SERVINGS" is null) and not (source_data."SERVINGS" is null))
+            or
+            ((not snapshotted_data."SERVINGS" is null) and (source_data."SERVINGS" is null))
+        ) or snapshotted_data."SOURCE_URL" != source_data."SOURCE_URL"
+        or
+        (
+            ((snapshotted_data."SOURCE_URL" is null) and not (source_data."SOURCE_URL" is null))
+            or
+            ((not snapshotted_data."SOURCE_URL" is null) and (source_data."SOURCE_URL" is null))
+        ) or snapshotted_data."CUISINE" != source_data."CUISINE"
+        or
+        (
+            ((snapshotted_data."CUISINE" is null) and not (source_data."CUISINE" is null))
+            or
+            ((not snapshotted_data."CUISINE" is null) and (source_data."CUISINE" is null))
+        ) or snapshotted_data."DIET_FLAGS" != source_data."DIET_FLAGS"
+        or
+        (
+            ((snapshotted_data."DIET_FLAGS" is null) and not (source_data."DIET_FLAGS" is null))
+            or
+            ((not snapshotted_data."DIET_FLAGS" is null) and (source_data."DIET_FLAGS" is null))
+        ))
+        )
+    ),
+
+    deletes as (
+
+        select
+            'delete' as dbt_change_type,
+            source_data.*,
+            to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as dbt_valid_from,
+            to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as dbt_updated_at,
+            to_timestamp_ntz(convert_timezone('UTC', current_timestamp())) as dbt_valid_to,
+            snapshotted_data.dbt_scd_id
+
+        from snapshotted_data
+        left join deletes_source_data as source_data on snapshotted_data.dbt_unique_key = source_data.dbt_unique_key
+        where source_data.dbt_unique_key is null
+    )
+
+    select * from insertions
+    union all
+    select * from updates
+    union all
+    select * from deletes
+
+        );
+[0m02:11:48.231699 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 1.0 seconds
+[0m02:11:48.240592 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m02:11:48.241191 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+describe table "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT__dbt_tmp"
+[0m02:11:48.330554 [debug] [Thread-1 (]: SQL status: SUCCESS 14 in 0.0 seconds
+[0m02:11:48.338691 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m02:11:48.339486 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+describe table "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT"
+[0m02:11:48.431820 [debug] [Thread-1 (]: SQL status: SUCCESS 12 in 0.0 seconds
+[0m02:11:48.440406 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m02:11:48.441195 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+describe table "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT__dbt_tmp"
+[0m02:11:48.567096 [debug] [Thread-1 (]: SQL status: SUCCESS 14 in 0.0 seconds
+[0m02:11:48.573572 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m02:11:48.574231 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+describe table "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT"
+[0m02:11:48.691000 [debug] [Thread-1 (]: SQL status: SUCCESS 12 in 0.0 seconds
+[0m02:11:48.704631 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m02:11:48.705188 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+describe table "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT__dbt_tmp"
+[0m02:11:48.799851 [debug] [Thread-1 (]: SQL status: SUCCESS 14 in 0.0 seconds
+[0m02:11:48.814996 [debug] [Thread-1 (]: Writing runtime sql for node "snapshot.snowchef.recipe_snapshot"
+[0m02:11:48.819679 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m02:11:48.820120 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+BEGIN
+[0m02:11:48.959256 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 0.0 seconds
+[0m02:11:48.960005 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m02:11:48.960662 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+merge into "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT" as DBT_INTERNAL_DEST
+    using "USER_DB_PUMA"."HISTORY"."RECIPE_SNAPSHOT__dbt_tmp" as DBT_INTERNAL_SOURCE
+    on DBT_INTERNAL_SOURCE.dbt_scd_id = DBT_INTERNAL_DEST.dbt_scd_id
+
+    when matched
+     and DBT_INTERNAL_DEST.dbt_valid_to is null
+     and DBT_INTERNAL_SOURCE.dbt_change_type in ('update', 'delete')
+        then update
+        set dbt_valid_to = DBT_INTERNAL_SOURCE.dbt_valid_to
+
+    when not matched
+     and DBT_INTERNAL_SOURCE.dbt_change_type = 'insert'
+        then insert ("RECIPE_PK", "TITLE", "INSTRUCTIONS", "SERVINGS", "SOURCE_URL", "CUISINE", "DIET_FLAGS", "LOADED_AT", "DBT_UPDATED_AT", "DBT_VALID_FROM", "DBT_VALID_TO", "DBT_SCD_ID")
+        values ("RECIPE_PK", "TITLE", "INSTRUCTIONS", "SERVINGS", "SOURCE_URL", "CUISINE", "DIET_FLAGS", "LOADED_AT", "DBT_UPDATED_AT", "DBT_VALID_FROM", "DBT_VALID_TO", "DBT_SCD_ID")
+
+;
+[0m02:11:50.580175 [debug] [Thread-1 (]: SQL status: SUCCESS 0 in 2.0 seconds
+[0m02:11:50.581825 [debug] [Thread-1 (]: Using snowflake connection "snapshot.snowchef.recipe_snapshot"
+[0m02:11:50.582154 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: /* {"app": "dbt", "dbt_version": "1.7.9", "profile_name": "snowchef", "target_name": "dev", "node_id": "snapshot.snowchef.recipe_snapshot"} */
+COMMIT
+[0m02:11:50.991941 [debug] [Thread-1 (]: SQL status: SUCCESS 1 in 0.0 seconds
+[0m02:11:51.025458 [debug] [Thread-1 (]: Timing info for snapshot.snowchef.recipe_snapshot (execute): 02:11:46.324609 => 02:11:51.024916
+[0m02:11:51.026069 [debug] [Thread-1 (]: On snapshot.snowchef.recipe_snapshot: Close
+[0m02:11:51.202002 [debug] [Thread-1 (]: Sending event: {'category': 'dbt', 'action': 'run_model', 'label': 'eeb60539-cd5f-493c-9739-2f41636caf63', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffff89fb8770>]}
+[0m02:11:51.205749 [info ] [Thread-1 (]: 1 of 1 OK snapshotted HISTORY.recipe_snapshot .................................. [[32mSUCCESS 0[0m in 4.89s]
+[0m02:11:51.210482 [debug] [Thread-1 (]: Finished running node snapshot.snowchef.recipe_snapshot
+[0m02:11:51.218374 [debug] [MainThread]: Connection 'master' was properly closed.
+[0m02:11:51.218852 [debug] [MainThread]: Connection 'snapshot.snowchef.recipe_snapshot' was properly closed.
+[0m02:11:51.219138 [debug] [MainThread]: Connection 'list_USER_DB_PUMA_RAW_ANALYTICS' was properly closed.
+[0m02:11:51.219427 [debug] [MainThread]: Connection 'list_USER_DB_PUMA_RAW' was properly closed.
+[0m02:11:51.222704 [info ] [MainThread]: 
+[0m02:11:51.224379 [info ] [MainThread]: Finished running 1 snapshot in 0 hours 0 minutes and 6.24 seconds (6.24s).
+[0m02:11:51.228344 [debug] [MainThread]: Command end result
+[0m02:11:51.266068 [info ] [MainThread]: 
+[0m02:11:51.266549 [info ] [MainThread]: [32mCompleted successfully[0m
+[0m02:11:51.266772 [info ] [MainThread]: 
+[0m02:11:51.267042 [info ] [MainThread]: Done. PASS=1 WARN=0 ERROR=0 SKIP=0 TOTAL=1
+[0m02:11:51.270285 [debug] [MainThread]: Resource report: {"command_name": "snapshot", "command_success": true, "command_wall_clock_time": 6.97244, "process_user_time": 3.207823, "process_kernel_time": 0.362747, "process_mem_max_rss": "215188", "process_out_blocks": "1862", "process_in_blocks": "0"}
+[0m02:11:51.271082 [debug] [MainThread]: Command `dbt snapshot` succeeded at 02:11:51.270965 after 6.97 seconds
+[0m02:11:51.271622 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffabe34d70>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffae7f41d0>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0xffffa33968a0>]}
+[0m02:11:51.271866 [debug] [MainThread]: Flushing usage events
