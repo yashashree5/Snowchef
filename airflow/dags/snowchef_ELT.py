@@ -18,7 +18,7 @@ with DAG(
     "snowchef_ELT_Dag",
     start_date=datetime(2025, 1, 1),
     description="A sample Airflow DAG to invoke dbt runs using a BashOperator",
-    schedule=None,
+    schedule_interval='@daily',
     catchup=False,
     default_args={
         "env": {
