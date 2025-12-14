@@ -17,30 +17,31 @@ st.markdown(
     """
     <style>
     body {
-        background-color: #0f172a;
+        background-color: #0a1929;
     }
     .main {
-        background: radial-gradient(circle at top, #0f172a 0, #020617 60%);
-        color: #e5e7eb;
+        background: radial-gradient(circle at top, #1a2332 0%, #0c1621 50%, #050d15 100%);
+        color: #e3f2fd;
     }
     .snow-card {
         border-radius: 18px;
         padding: 1.2rem 1.5rem;
-        background: rgba(15,23,42,0.85);
-        border: 1px solid rgba(148,163,184,0.4);
-        box-shadow: 0 18px 40px rgba(15,23,42,0.9);
+        background: linear-gradient(135deg, rgba(10,25,41,0.95) 0%, rgba(13,30,48,0.95) 100%);
+        border: 1px solid rgba(41,182,246,0.3);
+        box-shadow: 0 8px 32px rgba(41,182,246,0.15), 0 0 60px rgba(41,182,246,0.05);
         margin-bottom: 1rem;
     }
     .snow-metric {
         font-size: 1.8rem;
         font-weight: 700;
-        color: #fbbf24;
+        color: #29b6f6;
+        text-shadow: 0 0 20px rgba(41,182,246,0.5);
     }
     .snow-metric-label {
         font-size: 0.85rem;
         text-transform: uppercase;
         letter-spacing: 0.08em;
-        color: #9ca3af;
+        color: #4fc3f7;
     }
     .snow-pill {
         display: inline-block;
@@ -52,35 +53,66 @@ st.markdown(
         margin-right: 0.25rem;
     }
     .pill-can-now {
-        background: rgba(22,163,74,0.15);
-        color: #4ade80;
-        border: 1px solid rgba(34,197,94,0.5);
+        background: rgba(102,187,106,0.2);
+        color: #81c784;
+        border: 1px solid rgba(102,187,106,0.5);
+        box-shadow: 0 0 10px rgba(102,187,106,0.3);
     }
     .pill-almost {
-        background: rgba(234,179,8,0.1);
-        color: #facc15;
-        border: 1px solid rgba(250,204,21,0.6);
+        background: rgba(255,167,38,0.15);
+        color: #ffb74d;
+        border: 1px solid rgba(255,167,38,0.5);
+        box-shadow: 0 0 10px rgba(255,167,38,0.2);
     }
     .pill-low {
-        background: rgba(148,163,184,0.25);
-        color: #e5e7eb;
-        border: 1px solid rgba(148,163,184,0.6);
+        background: rgba(41,182,246,0.2);
+        color: #4fc3f7;
+        border: 1px solid rgba(41,182,246,0.5);
+        box-shadow: 0 0 10px rgba(41,182,246,0.3);
     }
     .recipe-title {
         font-size: 1.1rem;
         font-weight: 600;
         margin-bottom: 0.15rem;
+        color: #e3f2fd;
     }
     .recipe-subtitle {
         font-size: 0.8rem;
-        color: #9ca3af;
+        color: #81d4fa;
         margin-bottom: 0.5rem;
     }
     .recipe-instructions {
         font-size: 0.9rem;
         line-height: 1.5;
-        color: #e5e7eb;
+        color: #b3e5fc;
         white-space: pre-wrap;
+    }
+    .header-with-bg {
+        position: relative;
+        border-radius: 18px;
+        padding: 1.2rem 1.5rem;
+        background: linear-gradient(135deg, rgba(10,25,41,0.95) 0%, rgba(13,30,48,0.95) 100%);
+        border: 1px solid rgba(41,182,246,0.4);
+        box-shadow: 0 8px 32px rgba(41,182,246,0.2), 0 0 80px rgba(41,182,246,0.1);
+        margin-bottom: 1.5rem;
+        overflow: hidden;
+    }
+    .header-with-bg::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-image: url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=1200&q=80');
+        background-size: cover;
+        background-position:75% 75%;
+        opacity: 0.5;
+        z-index: 0;
+    }
+    .header-content {
+        position: relative;
+        z-index: 1;
     }
     </style>
     """,
@@ -223,17 +255,46 @@ def get_missing_ingredients(user_pk: str, recipe_pk: str) -> list[str]:
     return df["INGREDIENT_NAME"].tolist()
 
 
+@st.cache_data(show_spinner=False)
+def get_pantry_ingredients(user_pk: str) -> list[str]:
+    """
+    For a given user, return the list of ingredient names in their pantry.
+    """
+    params = get_connection_params()
+    db = params["database"]
+
+    conn = get_snowflake_connection()
+    try:
+        query = f"""
+            SELECT i.name AS ingredient_name
+            FROM {db}.{RAW_SCHEMA}.PANTRY p
+            JOIN {db}.{RAW_SCHEMA}.INGREDIENT i
+              ON p.INGREDIENT_ID = i.INGREDIENT_ID
+            WHERE p.USER_ID = %s
+            ORDER BY ingredient_name
+        """
+        df = pd.read_sql(query, conn, params=(user_pk,))
+    finally:
+        conn.close()
+
+    if df.empty:
+        return []
+    return df["INGREDIENT_NAME"].tolist()
+
+
 # ---------- Layout: Header ----------
 
 st.markdown(
     """
-    <div class="snow-card" style="margin-bottom: 1.5rem;">
-      <h1 style="margin:0; font-size:2.1rem; font-weight:700;">
-        🍳 Snowchef
-      </h1>
-      <p style="margin-top:0.3rem; color:#9ca3af; font-size:0.95rem;">
-        Smart pantry &amp; recipe recommendation warehouse powered by Snowflake, Airflow, dbt &amp; Streamlit.
-      </p>
+    <div class="header-with-bg">
+      <div class="header-content">
+        <h1 style="margin:0; font-size:2.1rem; font-weight:700;">
+        Snowchef
+        </h1>
+        <p style="margin-top:0.3rem; color:#81d4fa; font-size:0.95rem;">
+          Smart pantry &amp; recipe recommendation warehouse powered by Snowflake, Airflow, dbt &amp; Streamlit.
+        </p>
+      </div>
     </div>
     """,
     unsafe_allow_html=True,
@@ -263,7 +324,6 @@ with st.sidebar:
         [
             "I can cook now only",
             "I can cook now + almost there",
-            "All recipes within missing limit",
         ],
         index=1,
     )
@@ -290,10 +350,6 @@ with st.sidebar:
         step=3,
     )
 
-    st.markdown("---")
-    st.markdown(
-        "💡 These users are synthetic. In a real app, this would reflect the logged-in user’s live pantry."
-    )
 
 # ---------- Load Data ----------
 
@@ -310,7 +366,6 @@ elif view_mode == "I can cook now + almost there":
     recipes_df = recipes_df[
         (recipes_df["can_cook_now"] == True) | (recipes_df["almost_can_cook"] == True)
     ].copy()
-# else: keep all recipes within missing limit
 
 # Limit total recipes for a shorter page
 if not recipes_df.empty and len(recipes_df) > max_recipes:
@@ -339,103 +394,123 @@ with st.container():
         st.markdown(f'<div class="snow-metric">{almost_total}</div>', unsafe_allow_html=True)
 
     st.markdown(
-        f"<p style='margin-top:0.75rem; font-size:0.9rem; color:#9ca3af;'>"
-        f"Showing recipe matches for <b>{selected_user}</b> based on pantry contents in Snowflake."
+        f"<p style='margin-top:0.75rem; font-size:0.9rem; color:#81d4fa;'>"
+        f"Showing recipe matches for <b>{selected_user}</b> based on items pantry contents."
         f"</p>",
         unsafe_allow_html=True,
     )
     st.markdown('</div>', unsafe_allow_html=True)
 
-# ---------- Visualizations: Status + Dietary preferences ----------
+# ---------- Visualizations: Shopping list + Pantry contents ----------
 
 if not recipes_df.empty:
     viz_col1, viz_col2 = st.columns(2)
 
-    # Status pie/donut chart
-    status_df = recipes_df.copy()
-
-    def label_status(row):
-        if row["can_cook_now"]:
-            return "Can cook now"
-        elif row["almost_can_cook"]:
-            return "Almost there"
-        else:
-            return "Other match"
-
-    status_df["status"] = status_df.apply(label_status, axis=1)
-    status_counts = (
-        status_df.groupby("status")
-        .size()
-        .reset_index(name="count")
-        .sort_values("count", ascending=False)
-    )
-
+    # Shopping list - pie chart by category
     with viz_col1:
-        st.markdown("#### 🍕 Match breakdown")
-        if not status_counts.empty:
-            chart = (
-                alt.Chart(status_counts)
-                .mark_arc(innerRadius=50)
-                .encode(
-                    theta="count",
-                    color=alt.Color("status", legend=None),
-                    tooltip=["status", "count"],
-                )
-            )
-            st.altair_chart(chart, use_container_width=True)
-        else:
-            st.write("No data for status breakdown.")
-
-    # Dietary preferences bar chart from DIET_FLAGS
-    with viz_col2:
-        st.markdown("#### 🥗 Dietary styles you can cook")
-        diet_rows = []
-
+        st.markdown("#### 🛒 Shopping list by category")
+        shopping_list = []
+        
         for _, row in recipes_df.iterrows():
-            diets = row.get("diet_flags")
-            if diets is None:
-                continue
-
-            # Snowflake may return ARRAY or JSON string
-            diets_parsed = None
-            if isinstance(diets, str):
-                try:
-                    diets_parsed = json.loads(diets)
-                except Exception:
-                    diets_parsed = [diets]
-            else:
-                diets_parsed = diets
-
-            if not diets_parsed:
-                continue
-
-            for d in diets_parsed:
-                label = (str(d) or "").strip()
-                if label:
-                    diet_rows.append({"diet": label})
-
-        if diet_rows:
-            diet_df = (
-                pd.DataFrame(diet_rows)
-                .groupby("diet")
+            missing_ingredients = get_missing_ingredients(row["user_pk"], row["recipe_pk"])
+            shopping_list.extend(missing_ingredients)
+        
+        if shopping_list:
+            # Define ingredient categories
+            def categorize_ingredient(ingredient):
+                ingredient_lower = ingredient.lower()
+                
+                if any(word in ingredient_lower for word in ['lettuce', 'tomato', 'onion', 'pepper', 'carrot', 'celery', 
+                                                               'cucumber', 'spinach', 'kale', 'broccoli', 'cauliflower',
+                                                               'asparagus', 'zucchini', 'mushroom', 'avocado', 'potato']):
+                    return 'Produce'
+                elif any(word in ingredient_lower for word in ['chicken', 'beef', 'pork', 'fish', 'salmon', 'tuna',
+                                                                 'shrimp', 'turkey', 'lamb', 'tofu', 'tempeh', 'egg']):
+                    return 'Proteins'
+                elif any(word in ingredient_lower for word in ['milk', 'cheese', 'butter', 'cream', 'yogurt', 
+                                                                 'sour cream', 'parmesan', 'mozzarella', 'cheddar']):
+                    return 'Dairy'
+                elif any(word in ingredient_lower for word in ['salt', 'pepper', 'garlic', 'ginger', 'cumin', 'paprika',
+                                                                 'oregano', 'basil', 'thyme', 'rosemary', 'cinnamon',
+                                                                 'chili', 'spice', 'herb', 'bay', 'parsley', 'cilantro']):
+                    return 'Spices & Herbs'
+                elif any(word in ingredient_lower for word in ['oil', 'vinegar', 'sauce', 'stock', 'broth', 'flour',
+                                                                 'sugar', 'rice', 'pasta', 'noodle', 'beans', 'lentil',
+                                                                 'quinoa', 'honey', 'syrup', 'soy sauce', 'tomato paste']):
+                    return 'Pantry Staples'
+                else:
+                    return 'Other'
+            
+            # Categorize and count
+            shopping_with_category = [
+                {"ingredient": ing, "category": categorize_ingredient(ing)} 
+                for ing in shopping_list
+            ]
+            
+            category_counts = (
+                pd.DataFrame(shopping_with_category)
+                .groupby("category")
                 .size()
                 .reset_index(name="count")
                 .sort_values("count", ascending=False)
-                .head(10)
             )
+            
+            # Create pie chart
+            pie = (
+                alt.Chart(category_counts)
+                .mark_arc()
+                .encode(
+                    theta=alt.Theta("count:Q"),
+                    color=alt.Color("category:N", 
+                                    scale=alt.Scale(scheme='category20'),
+                                    legend=alt.Legend(title="Category")),
+                    tooltip=["category", "count"],
+                )
+                .properties(height=300)
+            )
+            st.altair_chart(pie, use_container_width=True)
+            
+            # Show detailed list by category
+            with st.expander("View detailed shopping list"):
+                for category in category_counts["category"]:
+                    items = [item["ingredient"] for item in shopping_with_category if item["category"] == category]
+                    unique_items = sorted(set(items))
+                    st.markdown(f"**{category}:** {', '.join(unique_items)}")
+        else:
+            st.write("No missing ingredients - you can cook everything!")
 
+    # Pantry contents - individual ingredients
+    with viz_col2:
+        st.markdown("#### 🥘 What's in your pantry")
+        pantry_items = get_pantry_ingredients(selected_user)
+        
+        if pantry_items:
+            # Create dataframe with individual ingredients
+            pantry_df = pd.DataFrame({"ingredient": pantry_items})
+            
+            # Count occurrences and sort
+            ingredient_counts = (
+                pantry_df.groupby("ingredient")
+                .size()
+                .reset_index(name="count")
+                .sort_values("count", ascending=False)
+                .head(15)  # Show top 15 ingredients
+            )
+            
             bar = (
-                alt.Chart(diet_df)
+                alt.Chart(ingredient_counts)
                 .mark_bar()
                 .encode(
-                    x=alt.X("count:Q", title="Number of recipes"),
-                    y=alt.Y("diet:N", sort="-x", title="Diet / preference"),
-                    tooltip=["diet", "count"],
+                    x=alt.X("count:Q", title="Quantity"),
+                    y=alt.Y("ingredient:N", sort="-x", title="Ingredient"),
+                    color=alt.value("#66bb6a"),
+                    tooltip=["ingredient", "count"],
                 )
+                .properties(height=400)
             )
             st.altair_chart(bar, use_container_width=True)
         else:
-            st.write("No dietary preference data available.")
+            st.write("No pantry data available.")
 
 st.markdown("")
 
@@ -455,13 +530,20 @@ remaining_can_df = can_now_df.iloc[3:]
 
 almost_df = recipes_df[recipes_df["can_cook_now"] == False].copy()
 
-# ---------- Helper: render a single card (Recipe ID removed) ----------
+# ---------- Helper: render a single card (fixed missing count) ----------
 
-def render_recipe_card(row, show_instructions_inline: bool, show_missing: bool):
+def render_recipe_card(row, show_instructions_inline: bool, show_missing: bool, show_matched: bool = True):
     match_pct = round(row["match_percentage"], 1)
-    missing = int(row["missing_count"])
     matched = int(row["matched_count"])
     total_req = int(row["total_required_count"])
+    
+    # Only fetch missing ingredients when we need to display the list
+    if show_missing:
+        missing_names = get_missing_ingredients(row["user_pk"], row["recipe_pk"])
+        missing = len(missing_names)
+    else:
+        missing_names = []
+        missing = int(row["missing_count"])
 
     if row["can_cook_now"]:
         pill_class = "pill-can-now"
@@ -499,12 +581,16 @@ def render_recipe_card(row, show_instructions_inline: bool, show_missing: bool):
             unsafe_allow_html=True,
         )
 
-    # Stats row – now ONLY 2 columns (no "Match percentage" stat)
-    stat1, stat2 = st.columns(2)
-    with stat1:
-        st.caption("Matched ingredients")
-        st.write(f"**{matched} / {total_req}**")
-    with stat2:
+    # Stats row – conditional display
+    if show_matched:
+        stat1, stat2 = st.columns(2)
+        with stat1:
+            st.caption("Matched ingredients")
+            st.write(f"**{matched} / {total_req}**")
+        with stat2:
+            st.caption("Missing ingredients")
+            st.write(f"**{missing}**")
+    else:
         st.caption("Missing ingredients")
         st.write(f"**{missing}**")
 
@@ -535,9 +621,6 @@ def render_recipe_card(row, show_instructions_inline: bool, show_missing: bool):
                 )
 
             if show_missing:
-                missing_names = get_missing_ingredients(
-                    row["user_pk"], row["recipe_pk"]
-                )
                 if missing_names:
                     st.markdown("**Missing ingredients:**")
                     st.write(", ".join(missing_names))
@@ -557,7 +640,7 @@ if not top3_can_df.empty:
 
     for col, (_, row) in zip(cols, top3_can_df.iterrows()):
         with col:
-            render_recipe_card(row, show_instructions_inline=True, show_missing=False)
+            render_recipe_card(row, show_instructions_inline=True, show_missing=False, show_matched=True)
 
     st.markdown("")
 
@@ -566,7 +649,7 @@ if not top3_can_df.empty:
 combined_df = pd.concat([remaining_can_df, almost_df], ignore_index=True)
 
 if not combined_df.empty:
-    st.markdown("### 🍽️ More recipes you’re close to")
+    st.markdown("### 🍽️ More recipes you're close to")
 
     cards = combined_df.to_dict("records")
     num_cols = 3
@@ -581,4 +664,5 @@ if not combined_df.empty:
                     row_series,
                     show_instructions_inline=False,
                     show_missing=True,
+                    show_matched=False,
                 )
