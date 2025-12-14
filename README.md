@@ -1,56 +1,52 @@
 # Snowchef
 
-Snowchef is a smart, data-driven kitchen assistant that predicts what you can cook based on the ingredients in your pantry.  
-It uses a modern analytics stack — **Airflow**, **Snowflake**, **dbt**, **Snowpark**, and **Tableau** — to build an end-to-end pipeline from raw recipe data all the way to recipe recommendations and dashboards.
+Snowchef is a data-driven recipe recommendation system that helps users determine what they can cook based on the ingredients already available in their pantry.  
+The project uses **Airflow**, **Snowflake**, **dbt**, and **Streamlit** to create an end-to-end data pipeline and an interactive web application.
 
 ---
 
-## ✨ What Snowchef Does
+## ✨ Key Features
 
-- 🔎 **Understands your pantry**  
-  Ingests ingredient and pantry data into Snowflake and keeps it fresh with Airflow.
+- 🔎 **Pantry-aware recipe recommendations**  
+  Recipes are ranked based on ingredient availability and missing ingredients.
 
-- 🍽️ **Recommends recipes**  
-  Uses Snowpark and Python to score recipes based on:
-  - Ingredients you already have  
-  - Missing ingredients and their cost/availability  
-  - Dietary tags (e.g. vegetarian, gluten-free) — if available in your data  
+- 📥 **Automated data ingestion with Airflow**  
+  Recipe and pantry data is ingested and refreshed on a schedule.
 
-- 🔁 **Transforms data with dbt**  
-  Cleans and models raw recipe & pantry tables into analytics-ready marts.
+- 🧮 **Data transformation using dbt**  
+  Raw data is cleaned, standardized, and modeled into analytics-ready tables.
 
-- 📊 **Visualizes insights in Tableau**  
-  Dashboards for:
-  - Top recommended recipes
-  - Ingredient substitutions
-  - Pantry usage and food-waste trends
-  - Popular cuisines / categories over time
+- 🖥️ **Interactive Streamlit UI (`app.py`)**  
+  Users explore their pantry, view recommendations, and inspect recipe details.
 
 ---
 
 ## 🧱 Architecture Overview
 
-**High-level flow:**
+Snowchef includes four main components:
 
-1. **Airflow** orchestrates ingestion jobs and dbt runs.
-2. **Raw data** (recipes, ingredients, pantry) lands in **Snowflake**.
-3. **dbt** models transform raw data into clean, documented models (staging → core → marts).
-4. **Snowpark** (via Python) powers the recommendation logic.
-5. **Tableau** connects to Snowflake to build dashboards on top of the marts.
-6. (Optional) **`app.py`** can be used as a simple entry point / script for Snowpark jobs or a minimal API.
+1. **Airflow**  
+   - Orchestrates ingestion and transformation workflows.  
+   - Ensures pipeline automation and reproducibility.
+
+2. **Snowflake**  
+   - Stores raw recipe data, pantry data, and transformed dbt models.
+
+3. **dbt**  
+   - Builds staging, core, and mart models for recipe logic and UI queries.
+
+4. **Streamlit (`app.py`)**  
+   - Provides a lightweight and interactive front-end for users to explore recipe recommendations.
 
 ---
 
 ## 📁 Repository Structure
 
-> Update this section if your structure changes.
-
 ```text
 Snowchef/
-├─ airflow/               # Airflow DAGs, configs and plugins
-├─ dbt/                   # dbt project (models, seeds, snapshots, macros)
-├─ app.py                 # Example Snowpark app / script entrypoint
-├─ docker-compose.yaml    # Docker services (e.g. Airflow scheduler/webserver, etc.)
+├─ airflow/               # Airflow DAGs and configurations
+├─ dbt/                   # dbt models, seeds, and transformations
+├─ app.py                 # Streamlit dashboard application
+├─ docker-compose.yaml    # Docker setup for Airflow components
 ├─ requirements.txt       # Python dependencies
-└─ README.md              # Project documentation
-
+└─ README.md              # Documentation
